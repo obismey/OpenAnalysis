@@ -69,6 +69,8 @@
     <Compile Include="Research\ResearchField.vb" />
     <Compile Include="Research\TechTree.vb" />
     <Compile Include="Research\TechTreeNode.vb" />
+    <Compile Include="Ships\Ship.vb" />
+    <Compile Include="Ships\ShipDesign.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -92,7 +94,6 @@
   <ItemGroup>
     <Folder Include="Diplomacy\" />
     <Folder Include="Economy\" />
-    <Folder Include="Ships\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
