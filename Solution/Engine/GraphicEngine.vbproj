@@ -56,7 +56,6 @@
   <ItemGroup>
     <Compile Include="Asset\IAssetManager.vb" />
     <Compile Include="BaseException.vb" />
-    <Compile Include="BaseProperty.vb" />
     <Compile Include="Camera\Camera.vb" />
     <Compile Include="Camera\ICamera.vb" />
     <Compile Include="Design\DesignAttribute.vb" />
@@ -64,7 +63,6 @@
     <Compile Include="Design\EditorAttribute.vb" />
     <Compile Include="Design\RefreshPropertiesAttribute.vb" />
     <Compile Include="Design\ServiceDirectiveAttribute.vb" />
-    <Compile Include="BaseObject.vb" />
     <Compile Include="Design\AttributeOverrider.vb" />
     <Compile Include="Design\BrowsableAttribute.vb" />
     <Compile Include="Design\DefaultValueAttribute.vb" />

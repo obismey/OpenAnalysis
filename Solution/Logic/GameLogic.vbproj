@@ -51,6 +51,9 @@
   <ItemGroup>
     <Compile Include="Building\Building.vb" />
     <Compile Include="Building\BuildingDesign.vb" />
+    <Compile Include="Diplomacy\Agreement.vb" />
+    <Compile Include="Diplomacy\RelationShip.vb" />
+    <Compile Include="Economy\Market.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -67,10 +70,21 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Research\ResearchField.vb" />
+    <Compile Include="Research\ResearchState.vb" />
     <Compile Include="Research\TechTree.vb" />
     <Compile Include="Research\TechTreeNode.vb" />
+    <Compile Include="Ressources\Antimatter.vb" />
+    <Compile Include="Ressources\Credit.vb" />
+    <Compile Include="Ressources\Energy.vb" />
+    <Compile Include="Ressources\HumanForce.vb" />
+    <Compile Include="Ressources\Metal.vb" />
+    <Compile Include="Ressources\Mineral.vb" />
+    <Compile Include="Ressources\Ressource.vb" />
+    <Compile Include="Ships\Fleet.vb" />
     <Compile Include="Ships\Ship.vb" />
     <Compile Include="Ships\ShipDesign.vb" />
+    <Compile Include="Ships\Squadron.vb" />
+    <Compile Include="Skills\Skill.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -92,8 +106,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Diplomacy\" />
-    <Folder Include="Economy\" />
+    <Folder Include="People\" />
+    <Folder Include="Staff\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
