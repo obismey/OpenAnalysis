@@ -14,7 +14,7 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -24,9 +24,8 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Engine.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42030,42032,42036,42104,42108,42109</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>42030,42104,42108,42109</WarningsAsErrors>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -36,9 +35,8 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Engine.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42030,42032,42036,42104,42108,42109</WarningsAsErrors>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>42030,42104,42108,42109</WarningsAsErrors>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
@@ -55,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asset\IAssetManager.vb" />
-    <Compile Include="BaseException.vb" />
     <Compile Include="Camera\Camera.vb" />
     <Compile Include="Camera\ICamera.vb" />
     <Compile Include="Design\DesignAttribute.vb" />
@@ -69,16 +66,51 @@
     <Compile Include="Design\DescriptionAttribute.vb" />
     <Compile Include="Design\DesignerAttribute.vb" />
     <Compile Include="Design\DesignOnlyAttribute.vb" />
+    <Compile Include="Gui\Brush.vb" />
+    <Compile Include="Gui\Button.vb" />
+    <Compile Include="Gui\Checkbox.vb" />
+    <Compile Include="Gui\%28Enums%29.vb" />
+    <Compile Include="Gui\%28Delegates%29.vb" />
+    <Compile Include="Gui\ComboBox.vb" />
+    <Compile Include="Gui\ContentControl.vb" />
+    <Compile Include="Gui\ContextMenu.vb" />
+    <Compile Include="Gui\Control.vb" />
+    <Compile Include="Gui\ControlContainer.vb" />
+    <Compile Include="Gui\CustomControl.vb" />
+    <Compile Include="Gui\Dimension.vb" />
+    <Compile Include="Gui\DockContainer.vb" />
+    <Compile Include="Gui\Frame.vb" />
+    <Compile Include="Gui\GradientBrush.vb" />
+    <Compile Include="Gui\GridContainer.vb" />
+    <Compile Include="Gui\Label.vb" />
+    <Compile Include="Gui\Listbox.vb" />
+    <Compile Include="Gui\Menu.vb" />
+    <Compile Include="Gui\Page.vb" />
+    <Compile Include="Gui\PanelContainer.vb" />
+    <Compile Include="Gui\ProgressBar.vb" />
+    <Compile Include="Gui\Resource.vb" />
+    <Compile Include="Gui\SkinSource.vb" />
+    <Compile Include="Gui\StackContainer.vb" />
+    <Compile Include="Gui\Style.vb" />
+    <Compile Include="Gui\TableContainer.vb" />
+    <Compile Include="Gui\Template.vb" />
+    <Compile Include="Gui\TextBlock.vb" />
+    <Compile Include="Gui\TextBox.vb" />
+    <Compile Include="Gui\TextureBrush.vb" />
+    <Compile Include="Gui\Thickness.vb" />
+    <Compile Include="Gui\Window.vb" />
+    <Compile Include="Gui\WrapContainer.vb" />
+    <Compile Include="Input\MouseButton.vb" />
+    <Compile Include="Input\KeyboardEventArgs.vb" />
+    <Compile Include="Input\MouseEventArgs.vb" />
     <Compile Include="Root.vb" />
     <Compile Include="EngineContext.vb" />
     <Compile Include="Enums\KnownSemantics.vb" />
     <Compile Include="Enums\TextureType.vb" />
-    <Compile Include="IDrawable.vb" />
+    <Compile Include="IEngineDrawable.vb" />
     <Compile Include="Input\IKeyboard.vb" />
     <Compile Include="Input\IMouse.vb" />
-    <Compile Include="Input\Inputs.vb" />
     <Compile Include="Input\IPad.vb" />
-    <Compile Include="IUpdateable.vb" />
     <Compile Include="Logging\ILogger.vb" />
     <Compile Include="Material\BaseMaterial.vb" />
     <Compile Include="Material\TextureUnit.vb" />
@@ -135,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Audio\" />
-    <Folder Include="Gui\" />
     <Folder Include="Material\Model Material\" />
     <Folder Include="Material\Particle Material\" />
     <Folder Include="Material\Post Process Material\" />

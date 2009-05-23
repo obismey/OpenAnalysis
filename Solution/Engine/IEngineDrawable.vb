@@ -1,4 +1,4 @@
-﻿Public Interface IDrawable
+﻿Public Interface IEngineDrawable
 
     Sub Draw(ByVal context As DrawContext)
 

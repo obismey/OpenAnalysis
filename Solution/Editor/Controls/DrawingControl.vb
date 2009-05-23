@@ -27,15 +27,15 @@ Public Class DrawingControl
         ' DoubleBuffered = True
         content = New Content.ContentManager(Services)
         cam = New ArcBallCamera(4 / 3)
-        timer = New Windows.Forms.Timer()
-        timer.Interval = 20
-        timer.Enabled = True
-        timer.Start()
+        'timer = New Windows.Forms.Timer()
+        'timer.Interval = 20
+        'timer.Enabled = True
+        'timer.Start()
 
         AddHandler Application.Idle, AddressOf Invalidate
     End Sub
 
-    Dim lastpos As Vector2
+    Public lastpos As Vector2
     Protected Overrides Sub OnMouseWheel(ByVal e As System.Windows.Forms.MouseEventArgs)
 
         cam.UpdateZoom(1.0F * Math.Sign(e.Delta))

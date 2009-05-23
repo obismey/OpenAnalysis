@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GraphicEngine", "Engine\GraphicEngine.vbproj", "{C37067C6-540A-4CB7-8355-8C0B8D53EA68}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GameEngine", "Engine\GameEngine.vbproj", "{C37067C6-540A-4CB7-8355-8C0B8D53EA68}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Design", "Design\Design.vbproj", "{EE6403F4-6B04-4CC4-A1B0-504BEF467964}"
 EndProject

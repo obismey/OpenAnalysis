@@ -50,8 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.vb" />
+    <Compile Include="BaseException.vb" />
     <Compile Include="BaseObject.vb" />
     <Compile Include="BaseProperty.vb" />
+    <Compile Include="ExecutionContext.vb" />
+    <Compile Include="IEngineUpdateable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

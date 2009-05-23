@@ -25,7 +25,6 @@
             _loadableFromDb = value
         End Set
     End Property
-
     Public Property Multilingue() As Boolean
         Get
             Return _multiLingue
@@ -34,7 +33,6 @@
             _multiLingue = value
         End Set
     End Property
-
     Public Property SupportChangeNotification() As Boolean
         Get
             Return _supportChangeNotification
