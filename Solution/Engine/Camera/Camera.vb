@@ -98,6 +98,8 @@ Public Class Camera
 
         End Set
     End Property
+
+    
 End Class
 
 Public Class ArcBallCamera
@@ -602,5 +604,7 @@ Public Class ChaseCamera
 
         End Set
     End Property
+
+    
 End Class
 

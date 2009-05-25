@@ -1,4 +1,4 @@
 ﻿Public Class BrowsableAttribute
-    Inherits Attribute
+    Inherits BaseAttribute
 
 End Class

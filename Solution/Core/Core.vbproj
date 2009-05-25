@@ -49,12 +49,26 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="%28Enums%29.vb" />
     <Compile Include="Action.vb" />
+    <Compile Include="BaseAttribute.vb" />
     <Compile Include="BaseException.vb" />
     <Compile Include="BaseObject.vb" />
     <Compile Include="BaseProperty.vb" />
+    <Compile Include="%28Delegates%29.vb" />
+    <Compile Include="Design Attributes\AttributeOverrider.vb" />
+    <Compile Include="Design Attributes\BrowsableAttribute.vb" />
+    <Compile Include="Design Attributes\DefaultValueAttribute.vb" />
+    <Compile Include="Design Attributes\DescriptionAttribute.vb" />
+    <Compile Include="Design Attributes\DesignAttribute.vb" />
+    <Compile Include="Design Attributes\DesignerAttribute.vb" />
+    <Compile Include="Design Attributes\DesignOnlyAttribute.vb" />
+    <Compile Include="Design Attributes\DisplayNameAttribute.vb" />
+    <Compile Include="Design Attributes\EditorAttribute.vb" />
+    <Compile Include="Design Attributes\RefreshPropertiesAttribute.vb" />
+    <Compile Include="Design Attributes\ServiceDirectiveAttribute.vb" />
     <Compile Include="ExecutionContext.vb" />
-    <Compile Include="IEngineUpdateable.vb" />
+    <Compile Include="IUpdateable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -70,6 +84,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="IValueSource.vb" />
+    <Compile Include="PropertyChangedArgs.vb" />
     <Compile Include="State.vb" />
   </ItemGroup>
   <ItemGroup>

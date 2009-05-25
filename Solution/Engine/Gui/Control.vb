@@ -8,9 +8,10 @@ Imports System.ComponentModel
 ''' </summary>
 ''' <remarks></remarks>
 Public Class Control
-    Implements INotifyPropertyChanged
+    Implements Core.IUpdatable
+    Implements IDrawable
 
-    Dim _id As Guid
+    Private _id As Guid
     Protected _drawrect As Rectangle
     Protected _type As String = ""
 
@@ -22,27 +23,19 @@ Public Class Control
     End Sub
 
 #Region "Infrastructure"
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="elapsedTime"></param>
-    ''' <param name="totalTime"></param>
-    ''' <remarks></remarks>
-    Protected Friend Overridable Sub Draw(ByVal elapsedTime As Double, ByVal totalTime As Double)
+  
+   
+
+    Protected Friend Overridable Sub Update(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements Core.IUpdatable.Update
+        _dimensionRect = ComputeRect(_container.GetAllowedDrawRect(Me))
+        _drawrect = Rectangle.Intersect(_dimensionRect, _container.GetAllowedClipRect(Me))
+    End Sub
+
+    Protected Friend Overridable Sub Draw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements IDrawable.Draw
         Dim dr As SpriteBatch = Root.Instance.Drawer
         DefaultBrush.Draw(DrawRect, dr)
     End Sub
 
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="elapsedTime"></param>
-    ''' <param name="totalTime"></param>
-    ''' <remarks></remarks>
-    Protected Friend Overridable Sub Update(ByVal elapsedTime As Double, ByVal totalTime As Double)
-        _dimensionRect = ComputeRect(_container.GetAllowedDrawRect(Me))
-        _drawrect = Rectangle.Intersect(_dimensionRect, _container.GetAllowedClipRect(Me))
-    End Sub
 
     ''' <summary>
     ''' 
@@ -59,7 +52,7 @@ Public Class Control
     Dim _w, _h As Dimension
     Dim _hal, _val As Alignment
     Dim _margin As Thickness
-    Dim _transformData() As Single = {0.0F, 0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.0F}
+
     Protected _dimensionRect As Rectangle
 
     ''' <summary>
@@ -134,18 +127,6 @@ Public Class Control
         Set(ByVal value As Thickness)
             _margin = value
         End Set
-    End Property
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    ReadOnly Property Transform() As Matrix
-        Get
-
-        End Get
     End Property
 
     ''' <summary>
@@ -230,8 +211,6 @@ Public Class Control
 #Region "Public field "
     Dim _name As String = ""
     Dim _text As String = ""
-    Dim _aref As Single = 0.5F
-    Dim _useAlpha As Boolean = False
     Dim _visibility As Visibility
     Dim _color As Brush = Color.AliceBlue
     Dim _enabled As Boolean
@@ -264,36 +243,6 @@ Public Class Control
         End Get
         Set(ByVal value As String)
             _text = value
-        End Set
-    End Property
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Property UseAlphaAsClippingMask() As Boolean
-        Get
-            Return _useAlpha
-        End Get
-        Set(ByVal value As Boolean)
-            _useAlpha = value
-        End Set
-    End Property
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Property AlphaClipRef() As Single
-        Get
-            Return _aref
-        End Get
-        Set(ByVal value As Single)
-            _aref = value
         End Set
     End Property
 
@@ -436,9 +385,6 @@ Public Class Control
     Sub OnGainFocus()
 
     End Sub
-
-
-
 #End Region
 
 #Region "Keyboard Event"
@@ -558,22 +504,7 @@ Public Class Control
 
 #End Region
 
-#Region "Data Bindings"
-
-    Sub AddBinding()
-
-    End Sub
-    Sub RemoveBinding()
-
-    End Sub
-    Friend Sub UpdateBinding()
-
-    End Sub
-
-#End Region
-
 #Region "Hierarchy"
-
 
     Friend _container As ControlContainer
 
@@ -588,15 +519,6 @@ Public Class Control
     End Property
 #End Region
 
-    Protected Sub OnPropertyChange()
 
-    End Sub
-
-    Public Event PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
 End Class
 
-Public Enum Visibility
-    Visible
-    Collapsed
-    Hidden
-End Enum

@@ -134,3 +134,28 @@ Public Enum DockState
     ''' <remarks></remarks>
     Right
 End Enum
+
+''' <summary>
+''' 
+''' </summary>
+''' <remarks></remarks>
+Public Enum Visibility
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Visible
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Collapsed
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Hidden
+End Enum

@@ -1,7 +1,11 @@
 ﻿Imports Microsoft.Xna.Framework.Graphics
 Imports Microsoft.Xna.Framework
+
+
 Public Class ModelPreviewWindow
     Private mdl As Model
+
+    Private Declare Function ShowCursor Lib "user32" (ByVal bShow As Long) As Long
 
 
     Sub New()
@@ -28,6 +32,12 @@ Public Class ModelPreviewWindow
 
     End Sub
 
+    Private Sub Button1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button1.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Left Then
+            ShowCursor(0)
+        End If
+    End Sub
+
     Private Sub Button1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button1.MouseMove
         Dim ms As Drawing.Point = e.Location
         If e.Button = Windows.Forms.MouseButtons.Left Then
@@ -38,5 +48,9 @@ Public Class ModelPreviewWindow
 
         DrawingControl1.lastpos = New Vector2(e.X, e.Y)
         MyBase.OnMouseMove(e)
+    End Sub
+
+    Private Sub Button1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button1.MouseUp
+        ShowCursor(1)
     End Sub
 End Class

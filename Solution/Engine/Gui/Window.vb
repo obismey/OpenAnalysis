@@ -1,4 +1,7 @@
 ﻿Public Class Window
+    Implements Core.IUpdatable
+    Implements IDrawable
+
     Dim _root As ControlContainer
     Dim _active As Boolean = True
 
@@ -26,20 +29,19 @@
         End Set
     End Property
 
-    Public Sub Draw(ByVal elapsedTime As Double, ByVal totalTime As Double)
-        If _root IsNot Nothing Then
-            _root.Draw(elapsedTime, totalTime)
-        End If
-    End Sub
-
-    Public Sub Update(ByVal elapsedTime As Double, ByVal totalTime As Double)
-        If _root IsNot Nothing Then
-            _root.Update(elapsedTime, totalTime)
-        End If
-    End Sub
-
     Public Overridable Sub InitializeComponents()
 
     End Sub
 
+    Public Sub Update(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements Core.IUpdatable.Update
+        If _root IsNot Nothing Then
+            _root.Update(timeElapsed, totalTimeElapsed)
+        End If
+    End Sub
+
+    Public Sub Draw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements IDrawable.Draw
+        If _root IsNot Nothing Then
+            _root.Draw(timeElapsed, totalTimeElapsed)
+        End If
+    End Sub
 End Class

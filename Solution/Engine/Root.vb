@@ -12,14 +12,8 @@ Public Class Root
     Implements Microsoft.Xna.Framework.IDrawable
     Implements Microsoft.Xna.Framework.IUpdateable
 
-    Private Shared _inst As Root = Nothing
+
     Private _game As Game
-
-    Shared ReadOnly Property Instance() As Root
-        Get
-
-        End Get
-    End Property
 
     Sub New(ByVal game As Game)
         If _inst Is Nothing Then
@@ -43,6 +37,15 @@ Public Class Root
         _content = content
         _graphicsDevice = device
     End Sub
+
+#Region "Singleton Implementation"
+    Private Shared _inst As Root = Nothing
+    Shared ReadOnly Property Instance() As Root
+        Get
+            Return _inst
+        End Get
+    End Property
+#End Region
 
 #Region "Gui Singleton"
 
@@ -247,7 +250,7 @@ Public Class Root
 
     End Sub
 
-    Public Sub GuiDraw()
+    Public Sub GuiDraw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
 
         Drawer.Begin()
         '  For Each v As Visual In testconsumer
@@ -278,22 +281,22 @@ Public Class Root
         Drawer.End()
 
     End Sub
-    Public Sub GuiUpdate()
+    Public Sub GuiUpdate(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
         Dim currentState As KeyboardState = Keyboard.GetState()
         If _focused IsNot Nothing Then
             If currentState <> oldKeyBoardState Then
-                _focused.OnKeyboardEvent(currentState, oldKeyBoardState, GameTime.ElapsedGameTime)
+                _focused.OnKeyboardEvent(currentState, oldKeyBoardState, TimeSpan.FromSeconds(timeElapsed))
             End If
         End If
         Dim mouseState As MouseState = Mouse.GetState()
         For Each c In _consumers
-            c.OnMouseEvent(mouseState, oldMouseState, GameTime.ElapsedGameTime)
+            c.OnMouseEvent(mouseState, oldMouseState, TimeSpan.FromSeconds(timeElapsed))
         Next
         For Each w As Window In _windows
             If w.Root IsNot Nothing Then
-                w.Root.OnMouseEvent(mouseState, oldMouseState, GameTime.ElapsedGameTime)
+                w.Root.OnMouseEvent(mouseState, oldMouseState, TimeSpan.FromSeconds(timeElapsed))
             End If
-            w.Update(GameTime.ElapsedGameTime.TotalSeconds, GameTime.TotalGameTime.TotalSeconds)
+            w.Update(timeElapsed, totalTimeElapsed)
         Next
         Dim mpos As Vector2 = New Vector2(Mouse.GetState().X, Mouse.GetState().Y)
         mouseRect = New Rectangle(mpos.X - 10, mpos.Y - 10, 20, 20)

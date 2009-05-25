@@ -33,7 +33,7 @@ Partial Class ModelPreviewWindow
         Me.DrawingControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DrawingControl1.Location = New System.Drawing.Point(0, 0)
         Me.DrawingControl1.Name = "DrawingControl1"
-        Me.DrawingControl1.Size = New System.Drawing.Size(290, 268)
+        Me.DrawingControl1.Size = New System.Drawing.Size(311, 275)
         Me.DrawingControl1.TabIndex = 0
         Me.DrawingControl1.Text = "DrawingControl1"
         '
@@ -44,8 +44,9 @@ Partial Class ModelPreviewWindow
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(12, 230)
+        Me.Button1.Location = New System.Drawing.Point(12, 237)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(30, 30)
         Me.Button1.TabIndex = 1
@@ -55,7 +56,7 @@ Partial Class ModelPreviewWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(290, 268)
+        Me.ClientSize = New System.Drawing.Size(311, 275)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DrawingControl1)
         Me.Name = "ModelPreviewWindow"
