@@ -66,5 +66,4 @@ Public Class MouseEventArgs
     End Function
 End Class
 
-Public Delegate Sub MouseEventHandler(ByVal sender As Object, ByVal e As MouseEventArgs)
 

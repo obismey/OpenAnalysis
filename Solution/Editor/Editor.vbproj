@@ -145,6 +145,19 @@
     <Compile Include="Forms\StartWindow.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Shaders\MainModule.vb" />
+    <Compile Include="Shaders\MapControl.Designer.vb">
+      <DependentUpon>MapControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders\MapControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shaders\ShaderVariableMapForm.Designer.vb">
+      <DependentUpon>ShaderVariableMapForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shaders\ShaderVariableMapForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Xna Base\Camera.vb" />
     <Compile Include="Xna Base\GraphicsDeviceControl.vb">
       <SubType>Component</SubType>
@@ -191,6 +204,12 @@
     <EmbeddedResource Include="Forms\StartWindow.resx">
       <DependentUpon>StartWindow.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\MapControl.resx">
+      <DependentUpon>MapControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shaders\ShaderVariableMapForm.resx">
+      <DependentUpon>ShaderVariableMapForm.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -212,6 +231,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.vbproj">
+      <Project>{39411658-8880-4261-A67A-C0C55ECBC66E}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\GameEngine.vbproj">
+      <Project>{C37067C6-540A-4CB7-8355-8C0B8D53EA68}</Project>
+      <Name>GameEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,8 +4,7 @@ Imports System.Globalization
 
 Public Structure Thickness
 
-    Public Left, Top, Right, Down As Dimension
-
+    Public Left, Top, Right, Down As Single
 
     Sub New(ByVal all As Single)
         Left = all
@@ -13,46 +12,12 @@ Public Structure Thickness
         Right = all
         Down = all
     End Sub
-    Sub New(ByVal all As Single, ByVal relative As RelativeTo)
-        Left = all
-        Top = all
-        Right = all
-        Down = all
-
-        Left.Relative = relative
-        Top.Relative = relative
-        Right.Relative = relative
-        Down.Relative = relative
-    End Sub
     Sub New(ByVal horizontal As Single, ByVal vertical As Single)
         Left = horizontal
         Top = vertical
         Right = horizontal
         Down = vertical
     End Sub
-    Sub New(ByVal horizontal As Single, ByVal vertical As Single, ByVal relative As RelativeTo)
-        Left = horizontal
-        Top = vertical
-        Right = horizontal
-        Down = vertical
-
-        Left.Relative = relative
-        Top.Relative = relative
-        Right.Relative = relative
-        Down.Relative = relative
-    End Sub
-
-    'left,top,right,bottom
-    Friend Function ComputeAbsolute(ByVal sourceWidth As Single, ByVal sourceHeigth As Single) As Single()
-        Dim result(4) As Single
-
-        result(0) = Left.ComputeAbsolute(sourceWidth)
-        result(1) = Top.ComputeAbsolute(sourceHeigth)
-        result(2) = Right.ComputeAbsolute(sourceWidth)
-        result(3) = Down.ComputeAbsolute(sourceHeigth)
-
-        Return result
-    End Function
 
     'left,top,right,down
     Shared Widening Operator CType(ByVal source As String) As Thickness
@@ -63,7 +28,7 @@ Public Structure Thickness
             st = st.Trim()
         Next
 
-        Dim dimensions(data.Length) As Dimension
+        Dim dimensions(data.Length) As Single
 
         For i As Integer = 0 To data.Length - 1
             Dim relatifto As String = data(i)(data(i).Length - 1)
@@ -86,7 +51,7 @@ Public Structure Thickness
                 value = data(i)
             End If
 
-            dimensions(i) = New Dimension(tmp, s.ConvertFromInvariantString(value))
+            dimensions(i) = s.ConvertFromInvariantString(value)
         Next
 
         Return New Thickness With { _

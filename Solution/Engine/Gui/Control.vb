@@ -2,6 +2,7 @@
 Imports Microsoft.Xna.Framework.Input
 Imports Microsoft.Xna.Framework.Graphics
 Imports System.ComponentModel
+Imports Core
 
 ''' <summary>
 ''' 
@@ -11,49 +12,37 @@ Public Class Control
     Implements Core.IUpdatable
     Implements IDrawable
 
-    Private _id As Guid
     Protected _drawrect As Rectangle
-    Protected _type As String = ""
-
+    
     Sub New()
-        _id = Guid.NewGuid
         _hal = Alignment.Strech
         _val = Alignment.Strech
         _margin = New Thickness(0)
     End Sub
 
 #Region "Infrastructure"
-  
-   
 
     Protected Friend Overridable Sub Update(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements Core.IUpdatable.Update
         _dimensionRect = ComputeRect(_container.GetAllowedDrawRect(Me))
         _drawrect = Rectangle.Intersect(_dimensionRect, _container.GetAllowedClipRect(Me))
-    End Sub
 
+    End Sub
     Protected Friend Overridable Sub Draw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements IDrawable.Draw
         Dim dr As SpriteBatch = Root.Instance.Drawer
         DefaultBrush.Draw(DrawRect, dr)
     End Sub
 
-
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <param name="previous"></param>
-    ''' <param name="newv"></param>
-    ''' <remarks></remarks>
-    Protected Sub OnVisibilityChange(ByVal previous As Boolean, ByVal newv As Boolean)
-
-    End Sub
 #End Region
 
 #Region "Positionnement and render transform"
-    Dim _w, _h As Dimension
     Dim _hal, _val As Alignment
-    Dim _margin As Thickness
-
     Protected _dimensionRect As Rectangle
+    Private _Width As Single
+    Public WidthSource As IValueSource(Of Single)
+    Public HeightSource As IValueSource(Of Single)
+    Private _Height As Single
+    Public MarginSource As IValueSource(Of Thickness)
+    Private _Margin As Thickness
 
     ''' <summary>
     ''' 
@@ -61,26 +50,29 @@ Public Class Control
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Property Height() As Dimension
+    Public Property Width() As Single
         Get
-            Return _h
+            Return If(WidthSource Is Nothing, _Width, WidthSource.GetValue(Me, "Width"))
         End Get
-        Set(ByVal value As Dimension)
-            _h = value
+        Set(ByVal value As Single)
+            _Width = value
+            WidthSource = Nothing
         End Set
     End Property
 
     ''' <summary>
+    ''' 
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Property Width() As Dimension
+    Public Property Height() As Single
         Get
-            Return _w
+            Return If(HeightSource Is Nothing, _Height, HeightSource.GetValue(Me, "Height"))
         End Get
-        Set(ByVal value As Dimension)
-            _w = value
+        Set(ByVal value As Single)
+            _Height = value
+            HeightSource = Nothing
         End Set
     End Property
 
@@ -120,12 +112,13 @@ Public Class Control
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Property Margin() As Thickness
+    Public Property Margin() As Thickness
         Get
-            Return _margin
+            Return If(MarginSource Is Nothing, _Margin, MarginSource.GetValue(Me, "Margin"))
         End Get
         Set(ByVal value As Thickness)
-            _margin = value
+            _Margin = value
+            MarginSource = Nothing
         End Set
     End Property
 
@@ -149,10 +142,12 @@ Public Class Control
         Return New Rectangle(CInt(res(0)), CInt(res(1)), CInt(res(2)), CInt(res(3)))
     End Function
     Private Function ComputeRect(ByVal parentWidth As Single, ByVal parentHeight As Single) As Single()
-        Dim m As Single() = Margin.ComputeAbsolute(parentWidth, parentHeight)
+        Dim m0 As Thickness = Margin
+        Dim m As Single() = New Single() {m0.Left, m0.Top, m0.Right, m0.Down}
 
-        Dim mw = Width.ComputeAbsolute(parentWidth)
-        Dim mh = Height.ComputeAbsolute(parentHeight)
+
+        Dim mw As Single = Width
+        Dim mh As Single = Height
 
         Dim tlx As Single
         Dim tly As Single
@@ -211,10 +206,12 @@ Public Class Control
 #Region "Public field "
     Dim _name As String = ""
     Dim _text As String = ""
-    Dim _visibility As Visibility
+    Dim _visibility As Visibility = Visibility.Visible
     Dim _color As Brush = Color.AliceBlue
     Dim _enabled As Boolean
     Dim _focusable As Boolean
+    Dim _zindex As Integer
+    Private _boderBrush As Brush = Color.Red
 
     ''' <summary>
     ''' 
@@ -267,10 +264,13 @@ Public Class Control
     ''' <value></value>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    ReadOnly Property Uid() As Guid
+    Public Property BorderBrush() As Brush
         Get
-            Return _id
+            Return _boderBrush
         End Get
+        Set(ByVal value As Brush)
+            _boderBrush = value
+        End Set
     End Property
 
     ''' <summary>
@@ -284,11 +284,7 @@ Public Class Control
             Return _visibility
         End Get
         Set(ByVal value As Visibility)
-            Dim tmp As Visibility = _visibility
             _visibility = value
-            If tmp <> _visibility Then
-                OnVisibilityChange(tmp, _visibility)
-            End If
         End Set
     End Property
 
@@ -330,10 +326,10 @@ Public Class Control
     ''' <remarks></remarks>
     Property Zindex() As Integer
         Get
-
+            Return _zindex
         End Get
         Set(ByVal value As Integer)
-
+            _zindex = value
         End Set
     End Property
 
@@ -362,40 +358,28 @@ Public Class Control
         End Get
     End Property
 
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    ReadOnly Property Type() As String
-        Get
-            Return _type
-        End Get
-    End Property
-#End Region
-
-#Region "Input"
-    Function SetFocus() As Boolean
-
-    End Function
-    Sub OnFocusLost(ByVal source As Control)
-
-    End Sub
-    Sub OnGainFocus()
-
-    End Sub
 #End Region
 
 #Region "Keyboard Event"
+    Private _focused As Boolean
+
+    Function SetFocus() As Boolean
+        If _focusable Then
+            If Not _focused Then
+                _focused = True
+                Root.Instance.NotifyFocusChange(Me)
+            End If
+        End If
+    End Function
+    Friend Sub OnFocusLost(ByVal source As Control)
+
+    End Sub
     Protected Friend Overridable Sub OnKeyboardEvent(ByVal kCurrent As KeyboardState, ByVal kOld As KeyboardState, ByVal timeElapsed As TimeSpan)
 
     End Sub
-
     Event KeyPress As KeyboardEventHandler
     Event KeyDown As KeyboardEventHandler
     Event KeyUp As KeyboardEventHandler
-
 #End Region
 
 #Region "Mouse Event"

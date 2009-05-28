@@ -69,6 +69,7 @@
     <Compile Include="Design Attributes\ServiceDirectiveAttribute.vb" />
     <Compile Include="ExecutionContext.vb" />
     <Compile Include="IUpdateable.vb" />
+    <Compile Include="ILogger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

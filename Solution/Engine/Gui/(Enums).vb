@@ -159,3 +159,22 @@ Public Enum Visibility
     ''' <remarks></remarks>
     Hidden
 End Enum
+
+''' <summary>
+''' 
+''' </summary>
+''' <remarks></remarks>
+Public Enum StackDirection
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Vertical
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Horizontal
+End Enum

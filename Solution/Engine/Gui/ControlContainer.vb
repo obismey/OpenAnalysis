@@ -13,16 +13,25 @@ Public Class ControlContainer
     Protected Friend _isRootContainer As Boolean = False
     Dim _children As New List(Of Control)
 
-    Overridable Sub ReArrange()
-
-    End Sub
-
     ReadOnly Property Children() As ObjectModel.ReadOnlyCollection(Of Control)
         Get
             Return _children.AsReadOnly
         End Get
     End Property
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <remarks></remarks>
+    Overridable Sub ReArrange()
+
+    End Sub
+
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="child"></param>
+    ''' <remarks></remarks>
     Public Overridable Sub AddChild(ByVal child As Control)
         If Not _children.Contains(child) Then
             _children.Add(child)
@@ -30,9 +39,19 @@ Public Class ControlContainer
         End If
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="Child"></param>
+    ''' <remarks></remarks>
     Public Overridable Sub RemoveChild(ByVal Child As Control)
         _children.Remove(Child)
     End Sub
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="index"></param>
+    ''' <remarks></remarks>
     Public Overridable Sub RemoveChild(ByVal index As Integer)
         _children.RemoveAt(index)
     End Sub
@@ -57,7 +76,7 @@ Public Class ControlContainer
         Return DrawRect
     End Function
 
-    Protected Friend Overrides Sub Draw(ByVal elapsedTime As Double, ByVal totalTime As Double)
+    Protected Friend Overrides Sub Draw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
         If _isRootContainer Then
             Dim dr As SpriteBatch = Root.Instance.Drawer
 
@@ -65,25 +84,33 @@ Public Class ControlContainer
 
             DefaultBrush.Draw(rect, dr)
         Else
-            MyBase.Draw(elapsedTime, totalTime)
+            MyBase.Draw(context, timeElapsed, totalTimeElapsed)
         End If
 
         For Each child In Children
-            child.Draw(elapsedTime, totalTime)
+            If child.Visiblility = Visibility.Visible Then
+                child.Draw(context, timeElapsed, totalTimeElapsed)
+            End If
         Next
     End Sub
 
-    Protected Friend Overrides Sub Update(ByVal elapsedTime As Double, ByVal totalTime As Double)
+    Protected Friend Overrides Sub Update(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
         If _isRootContainer Then
             _drawrect = ComputeRect(Root.Instance.ViewportRect)
             _dimensionRect = ComputeRect(Root.Instance.ViewportRect)
         Else
-            MyBase.Update(elapsedTime, totalTime)
+            MyBase.Update(timeElapsed, totalTimeElapsed)
         End If
 
         For Each child In Children
-            child.Update(elapsedTime, totalTime)
+            If child.Visiblility <> Visibility.Collapsed Then
+                child.Update(timeElapsed, totalTimeElapsed)
+            End If
         Next
+    End Sub
+
+    Protected Friend Overrides Sub OnKeyboardEvent(ByVal kCurrent As Microsoft.Xna.Framework.Input.KeyboardState, ByVal kOld As Microsoft.Xna.Framework.Input.KeyboardState, ByVal timeElapsed As System.TimeSpan)
+        MyBase.OnKeyboardEvent(kCurrent, kOld, timeElapsed)
     End Sub
 
     Protected Friend Overrides Sub OnMouseEvent(ByVal mCurrent As Microsoft.Xna.Framework.Input.MouseState, ByVal mOld As Microsoft.Xna.Framework.Input.MouseState, ByVal timeElapsed As System.TimeSpan)
@@ -92,5 +119,4 @@ Public Class ControlContainer
             child.OnMouseEvent(mCurrent, mOld, timeElapsed)
         Next
     End Sub
-
 End Class

@@ -43,7 +43,8 @@ Public Class ModelPreviewWindow
         If e.Button = Windows.Forms.MouseButtons.Left Then
             Dim pos As Vector2 = New Vector2(ms.X, ms.Y)
             Dim dir As Vector2 = Vector2.Normalize(pos - DrawingControl1.lastpos)
-            DrawingControl1.cam.Rotate(dir.X / 5, dir.Y / 5)
+            DrawingControl1.cam.HorizontalAngle = dir.X / 5
+            DrawingControl1.cam.VerticalAngle = dir.Y / 5
         End If
 
         DrawingControl1.lastpos = New Vector2(e.X, e.Y)

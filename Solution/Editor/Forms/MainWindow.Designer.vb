@@ -38,6 +38,8 @@ Partial Class MainWindow
         Me.Dock = New WeifenLuo.WinFormsUI.Docking.DockPanel
         Me.Opd = New System.Windows.Forms.OpenFileDialog
         Me.Bgw = New System.ComponentModel.BackgroundWorker
+        Me.MusicToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ShaderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -66,27 +68,27 @@ Partial Class MainWindow
         '
         'ImportsToolStripMenuItem
         '
-        Me.ImportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModelToolStripMenuItem, Me.TextureToolStripMenuItem, Me.SoundToolStripMenuItem})
+        Me.ImportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ModelToolStripMenuItem, Me.TextureToolStripMenuItem, Me.SoundToolStripMenuItem, Me.MusicToolStripMenuItem, Me.ShaderToolStripMenuItem})
         Me.ImportsToolStripMenuItem.Name = "ImportsToolStripMenuItem"
-        Me.ImportsToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.ImportsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ImportsToolStripMenuItem.Text = "Imports"
         '
         'ModelToolStripMenuItem
         '
         Me.ModelToolStripMenuItem.Name = "ModelToolStripMenuItem"
-        Me.ModelToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.ModelToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ModelToolStripMenuItem.Text = "Model"
         '
         'TextureToolStripMenuItem
         '
         Me.TextureToolStripMenuItem.Name = "TextureToolStripMenuItem"
-        Me.TextureToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.TextureToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.TextureToolStripMenuItem.Text = "Texture"
         '
         'SoundToolStripMenuItem
         '
         Me.SoundToolStripMenuItem.Name = "SoundToolStripMenuItem"
-        Me.SoundToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SoundToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SoundToolStripMenuItem.Text = "Sound"
         '
         'AffichageToolStripMenuItem
@@ -145,6 +147,18 @@ Partial Class MainWindow
         Me.Bgw.WorkerReportsProgress = True
         Me.Bgw.WorkerSupportsCancellation = True
         '
+        'MusicToolStripMenuItem
+        '
+        Me.MusicToolStripMenuItem.Name = "MusicToolStripMenuItem"
+        Me.MusicToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MusicToolStripMenuItem.Text = "Music"
+        '
+        'ShaderToolStripMenuItem
+        '
+        Me.ShaderToolStripMenuItem.Name = "ShaderToolStripMenuItem"
+        Me.ShaderToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ShaderToolStripMenuItem.Text = "Shader"
+        '
         'MainWindow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -181,5 +195,7 @@ Partial Class MainWindow
     Friend WithEvents SoundToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Opd As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Bgw As System.ComponentModel.BackgroundWorker
+    Friend WithEvents MusicToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ShaderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

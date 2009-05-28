@@ -52,52 +52,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Camera\Camera.vb" />
+    <Compile Include="Camera\ArcBallCamera.vb" />
+    <Compile Include="Camera\ChaseCamera.vb" />
+    <Compile Include="Camera\FreeCamera.vb" />
     <Compile Include="Camera\ICamera.vb" />
     <Compile Include="Gui\Brush.vb" />
-    <Compile Include="Gui\NewFolder1\Button.vb" />
-    <Compile Include="Gui\NewFolder1\Checkbox.vb" />
+    <Compile Include="Gui\NewFolder3\Button.vb" />
     <Compile Include="Gui\%28Enums%29.vb" />
     <Compile Include="Gui\%28Delegates%29.vb" />
-    <Compile Include="Gui\NewFolder1\ComboBox.vb" />
-    <Compile Include="Gui\NewFolder1\ContentControl.vb" />
-    <Compile Include="Gui\NewFolder1\ContextMenu.vb" />
     <Compile Include="Gui\Control.vb" />
     <Compile Include="Gui\ControlContainer.vb" />
-    <Compile Include="Gui\CustomControl.vb" />
-    <Compile Include="Gui\Dimension.vb" />
-    <Compile Include="Gui\NewFolder2\DockContainer.vb" />
-    <Compile Include="Gui\Frame.vb" />
     <Compile Include="Gui\NewFolder2\GridContainer.vb" />
-    <Compile Include="Gui\NewFolder1\Label.vb" />
-    <Compile Include="Gui\NewFolder1\Listbox.vb" />
-    <Compile Include="Gui\NewFolder1\Menu.vb" />
-    <Compile Include="Gui\Page.vb" />
-    <Compile Include="Gui\NewFolder2\PanelContainer.vb" />
-    <Compile Include="Gui\NewFolder1\ProgressBar.vb" />
     <Compile Include="Gui\NewFolder2\StackContainer.vb" />
-    <Compile Include="Gui\Style.vb" />
     <Compile Include="Gui\NewFolder2\TableContainer.vb" />
-    <Compile Include="Gui\Template.vb" />
-    <Compile Include="Gui\NewFolder1\TextBlock.vb" />
-    <Compile Include="Gui\NewFolder1\TextBox.vb" />
-    <Compile Include="Gui\TextureBrush.vb" />
+    <Compile Include="Gui\NewFolder3\TextBlock.vb" />
+    <Compile Include="Gui\NewFolder3\TextBox.vb" />
     <Compile Include="Gui\Thickness.vb" />
     <Compile Include="Gui\Window.vb" />
-    <Compile Include="Gui\NewFolder2\WrapContainer.vb" />
-    <Compile Include="Input\MouseButton.vb" />
+    <Compile Include="Input\%28Delegates%29.vb" />
+    <Compile Include="Input\%28Enums%29.vb" />
     <Compile Include="Input\KeyboardEventArgs.vb" />
+    <Compile Include="Input\KeySource.vb" />
     <Compile Include="Input\MouseEventArgs.vb" />
+    <Compile Include="Material\Model Material\ModelMaterial.vb" />
+    <Compile Include="Material\Particle Material\PSysMaterial.vb" />
+    <Compile Include="Material\Particle Material\TrailMaterial.vb" />
+    <Compile Include="Material\Post Process Material\ImageProcessingMaterial.vb" />
+    <Compile Include="Material\Post Process Material\PostProcessMaterial.vb" />
+    <Compile Include="Material\ShaderMaterial.vb" />
     <Compile Include="Root.vb" />
-    <Compile Include="Enums\KnownSemantics.vb" />
-    <Compile Include="Enums\TextureType.vb" />
+    <Compile Include="twoD\Sprite.vb" />
+    <Compile Include="Visual Base\KnownSemantics.vb" />
+    <Compile Include="Visual Base\TextureType.vb" />
     <Compile Include="IDrawable.vb" />
     <Compile Include="Input\IKeyboard.vb" />
     <Compile Include="Input\IMouse.vb" />
     <Compile Include="Input\IPad.vb" />
-    <Compile Include="Logging\ILogger.vb" />
     <Compile Include="Material\BaseMaterial.vb" />
-    <Compile Include="Material\TextureUnit.vb" />
+    <Compile Include="Material\Model Material\TextureUnit.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -113,6 +105,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Sky\Skybox.vb" />
+    <Compile Include="Sky\SkyboxMaterial.vb" />
     <Compile Include="Visual Base\States\AlphaBlendState.vb" />
     <Compile Include="Visual Base\States\AlphaTestState.vb" />
     <Compile Include="Visual Base\Modifiers\ClearBufferModifier.vb" />
@@ -149,16 +143,6 @@
       <Project>{39411658-8880-4261-A67A-C0C55ECBC66E}</Project>
       <Name>Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Asset\" />
-    <Folder Include="Audio\" />
-    <Folder Include="Design\" />
-    <Folder Include="Gui\NewFolder3\" />
-    <Folder Include="Material\Model Material\" />
-    <Folder Include="Material\Particle Material\" />
-    <Folder Include="Material\Post Process Material\" />
-    <Folder Include="Sky\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

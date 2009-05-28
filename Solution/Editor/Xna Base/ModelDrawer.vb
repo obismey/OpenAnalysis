@@ -5,7 +5,7 @@ Public Class ModelDrawer
     Dim model As Model
     Dim v, p, w As Matrix
     Dim gdevice As GraphicsDevice
-    Dim _cam As ICamera
+    Dim _cam As Engine.ICamera
 
 
     Sub New(ByVal mdl As Model, ByVal device As GraphicsDevice)
@@ -14,11 +14,11 @@ Public Class ModelDrawer
         w = Matrix.Identity()
     End Sub
 
-    Property Camera() As ICamera
+    Property Camera() As Engine.ICamera
         Get
             Return _cam
         End Get
-        Set(ByVal value As ICamera)
+        Set(ByVal value As Engine.ICamera)
             _cam = value
         End Set
     End Property
@@ -195,10 +195,10 @@ Public Class ModelDrawer
             'TimeParam.SetValue(Edition.GraphDocument.Renderer1.time)
         End If
         If camDirParam IsNot Nothing Then
-            camDirParam.SetValue(Camera.CameraDirection)
+            camDirParam.SetValue(Camera.Direction)
         End If
         If camPosParam IsNot Nothing Then
-            camPosParam.SetValue(Camera.CameraPosition)
+            camPosParam.SetValue(Camera.Position)
         End If
 
         For Each m As ModelMesh In model.Meshes

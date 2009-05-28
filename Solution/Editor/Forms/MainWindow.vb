@@ -49,6 +49,7 @@
 
     End Sub
 
+
     Private Sub Bgw_DoWork(ByVal sender As Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles Bgw.DoWork
 
         Dim data() As String = e.Argument
@@ -104,6 +105,9 @@
             Return
         End If
 
+        If data(0).ToLower = "shader" Then
+
+        End If
     End Sub
 
     Private Sub Bgw_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles Bgw.RunWorkerCompleted
@@ -115,6 +119,10 @@
         '      SoundPlayer.Show(Me)
 
         ModelPreviewWindow.Show(Me)
+
+    End Sub
+
+    Private Sub MusicToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MusicToolStripMenuItem.Click
 
     End Sub
 End Class

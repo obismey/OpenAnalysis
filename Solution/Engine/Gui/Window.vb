@@ -41,7 +41,7 @@
 
     Public Sub Draw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?) Implements IDrawable.Draw
         If _root IsNot Nothing Then
-            _root.Draw(timeElapsed, totalTimeElapsed)
+            _root.Draw(context, timeElapsed, totalTimeElapsed)
         End If
     End Sub
 End Class

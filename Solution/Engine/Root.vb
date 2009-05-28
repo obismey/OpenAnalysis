@@ -47,8 +47,6 @@ Public Class Root
     End Property
 #End Region
 
-#Region "Gui Singleton"
-
 #Region "Ressource Management"
     Dim _ressources As New SortedList(Of String, Object)
     Dim _content As ContentManager
@@ -125,6 +123,10 @@ Public Class Root
     End Function
 #End Region
 
+#Region "Gui Singleton"
+
+
+
 #Region "Input Managment"
     Dim oldKeyBoardState As KeyboardState
     Dim oldMouseState As MouseState
@@ -154,9 +156,7 @@ Public Class Root
             _focused.OnFocusLost(source)
         End If
         _focused = source
-        _focused.OnGainFocus()
     End Sub
-
 
     Friend Sub AddControl(ByVal cons As Control)
         If _consumers.Contains(cons) Then
@@ -247,36 +247,20 @@ Public Class Root
         _ressources.Add("colormap", tex)
         LoadRessource(Of Texture2D)("bt.png", "bt")
         _drawer = New SpriteBatch(_graphicsDevice)
-
     End Sub
 
     Public Sub GuiDraw(ByVal context As DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
 
         Drawer.Begin()
-        '  For Each v As Visual In testconsumer
-        'v.Draw(Nothing)
-        '  Next
-        '  mouseElt.Draw(Nothing)
+     
         For Each w As Window In _windows
-            w.Draw(GameTime.ElapsedGameTime.TotalSeconds, GameTime.TotalGameTime.TotalSeconds)
+            w.Draw(context, timeElapsed, totalTimeElapsed)
         Next
-        Drawer.Draw(GetTexture("mouse"), mouseRect, Color.White)
 
-        Dim center As Vector2 = New Vector2(Gdevice.Viewport.X + Gdevice.Viewport.Width, _
-                                          Gdevice.Viewport.Y + Gdevice.Viewport.Height)
+        Dim mpos As Vector2 = New Vector2(Mouse.GetState().X, Mouse.GetState().Y)
 
-        center *= 0.5F
-        '   Drawer.Draw(_ressources("colormap"), center, Nothing, Color.Blue, _
-        '            gameTime.TotalGameTime.TotalSeconds, Vector2.Zero, New Vector2(200, 5), SpriteEffects.None, 0)
 
-        Dim trapeze() As Vector2 = New Vector2() {center - 100 * Vector2.One, _
-                                                 center + 100 * Vector2.UnitX - 100 * Vector2.UnitY, _
-                                                 center + 150 * Vector2.UnitX, _
-                                                 center + 150 * Vector2.UnitX + 100 * Vector2.UnitY, _
-                                                 center + -100 * Vector2.UnitX + 100 * Vector2.UnitY}
-
-        '   DrawLines(trapeze, True, Color.Red, 1.0F)
-        Dim trans As Matrix = Matrix.CreateTranslation(center.X, center.Y, 0)
+        Drawer.Draw(GetTexture("mouse"), New Rectangle(mpos.X, mpos.Y, 20, 20), Color.White)
 
         Drawer.End()
 
@@ -299,7 +283,7 @@ Public Class Root
             w.Update(timeElapsed, totalTimeElapsed)
         Next
         Dim mpos As Vector2 = New Vector2(Mouse.GetState().X, Mouse.GetState().Y)
-        mouseRect = New Rectangle(mpos.X - 10, mpos.Y - 10, 20, 20)
+        mouseRect = New Rectangle(mpos.X, mpos.Y, 20, 20)
 
         oldKeyBoardState = currentState
         oldMouseState = mouseState
@@ -319,7 +303,7 @@ Public Class Root
                     angle, Vector2.Zero, New Vector2(length, size), SpriteEffects.None, 0)
 
     End Sub
-    
+
 #End Region
 
 #Region "Input Singleton"
@@ -338,17 +322,22 @@ Public Class Root
 
 #End Region
 
+#Region "Sound Singleton"
+
+#End Region
+
 #Region "Interfaces Implementation"
     Dim _dorder, _uorder As Integer
     Dim _visible, _enabled As Boolean
 
-    Private Sub Initialize() Implements Microsoft.Xna.Framework.IGameComponent.Initialize
+    Public Sub Initialize() Implements Microsoft.Xna.Framework.IGameComponent.Initialize
         GuiInitialize()
     End Sub
-    Private Sub Draw(ByVal gameTime As Microsoft.Xna.Framework.GameTime) Implements Microsoft.Xna.Framework.IDrawable.Draw
+    Public Sub Draw(ByVal gameTime As Microsoft.Xna.Framework.GameTime) Implements Microsoft.Xna.Framework.IDrawable.Draw
+        GuiDraw(Nothing, gameTime.ElapsedGameTime.TotalSeconds, gameTime.TotalGameTime.TotalSeconds)
     End Sub
-    Private Sub Update(ByVal gameTime As Microsoft.Xna.Framework.GameTime) Implements Microsoft.Xna.Framework.IUpdateable.Update
-
+    Public Sub Update(ByVal gameTime As Microsoft.Xna.Framework.GameTime) Implements Microsoft.Xna.Framework.IUpdateable.Update
+        GuiUpdate(gameTime.ElapsedGameTime.TotalSeconds, gameTime.TotalGameTime.TotalSeconds)
     End Sub
 
     Public ReadOnly Property DrawOrder() As Integer Implements Microsoft.Xna.Framework.IDrawable.DrawOrder
