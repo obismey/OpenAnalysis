@@ -1,13 +1,18 @@
 ﻿Imports Microsoft.Xna.Framework
 Imports Microsoft.Xna.Framework.Graphics
-
+Imports Core
 Public Class TextureUnit
 
-    Private _rotation As Single
-    Private _tiling As Vector3
-    Private _offset As Vector3
-    Private _map As Texture
+    Public OffsetSource As IValueSource(Of Vector3)
+    Public RotationSource As IValueSource(Of Single)
+    Public TilingSource As IValueSource(Of Vector3)
+
+    Private _Rotation As Single
+    Private _Offset As Vector3
     Private _texcoordIndex As UInteger
+    Private _map As String
+    Private _Tiling As Vector3
+
 
     Public Property TexCoordIndex() As UInteger
         Get
@@ -17,37 +22,39 @@ Public Class TextureUnit
             _texcoordIndex = value
         End Set
     End Property
-    Public Property Map() As Texture
+    Public Property Map() As String
         Get
             Return _map
         End Get
-        Set(ByVal value As Texture)
+        Set(ByVal value As String)
             _map = value
         End Set
     End Property
     Public Property Offset() As Vector3
         Get
-            Return _offset
+            Return If(OffsetSource Is Nothing, _Offset, OffsetSource.GetValue(Me, "Offset"))
         End Get
         Set(ByVal value As Vector3)
-            _offset = value
+            _Offset = value
+            OffsetSource = Nothing
         End Set
     End Property
     Public Property Tiling() As Vector3
         Get
-            Return _tiling
+            Return If(TilingSource Is Nothing, _Tiling, TilingSource.GetValue(Me, "Tiling"))
         End Get
         Set(ByVal value As Vector3)
-            _tiling = value
+            _Tiling = value
+            TilingSource = Nothing
         End Set
     End Property
     Public Property Rotation() As Single
         Get
-            Return _rotation
+            Return If(RotationSource Is Nothing, _Rotation, RotationSource.GetValue(Me, "Rotation"))
         End Get
         Set(ByVal value As Single)
-            _rotation = value
+            _Rotation = value
+            RotationSource = Nothing
         End Set
     End Property
-
 End Class
