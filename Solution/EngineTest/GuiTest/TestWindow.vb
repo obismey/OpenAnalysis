@@ -5,12 +5,12 @@ Imports <xmlns:xs="http://www.w3.org/2001/XMLSchema">
 Public Class TestWindow
     Inherits Window
 
-    Dim WithEvents MainContainer As ControlContainer
+    Dim WithEvents MainContainer As StackContainer
 
 
     Public Overrides Sub InitializeComponents()
-        MainContainer = New ControlContainer()
-
+        MainContainer = New StackContainer()
+        MainContainer.Direction = StackDirection.Vertical
         'MainContainer.Rows.Add("0.20")
         'MainContainer.Rows.Add("0.40")
         'MainContainer.Rows.Add("0.30")
@@ -27,19 +27,22 @@ Public Class TestWindow
         'MainContainer.ColumnSpan(tmp) = 1
         tmp.DefaultBrush = "bt"
 
-        'Dim tmp2 As New TestControl
-        'MainContainer.AddChild(tmp2)
+        Dim tmp2 As New TestControl
+        MainContainer.AddChild(tmp2)
         'MainContainer.Row(tmp2) = 0
         'MainContainer.Column(tmp2) = 3
         'MainContainer.RowSpan(tmp2) = 4
         'MainContainer.ColumnSpan(tmp2) = 1
+        tmp2.DefaultBrush = "bt"
 
-        'Dim tmp3 As New TestControl
-        'MainContainer.AddChild(tmp3)
+
+        Dim tmp3 As New TestControl
+        MainContainer.AddChild(tmp3)
         'MainContainer.Row(tmp3) = 1
         'MainContainer.Column(tmp3) = 0
         'MainContainer.RowSpan(tmp3) = 3
         'MainContainer.ColumnSpan(tmp3) = 3
+        tmp3.DefaultBrush = "bt"
 
         Root = MainContainer()
         Dim mpup As New keyMap With { _
@@ -60,10 +63,11 @@ Public Class TestWindow
         ks.Maps.Add(mpdown)
         With Root
             .VAlign = Alignment.Center
-            .HAlign = Alignment.Strech
+            .HAlign = Alignment.Rigth
             .Margin = New Thickness(50, 50)
             '.HeightSource = ks
-            .Height = 300
+            .Height = 200
+            .Width = 200
         End With
 
     End Sub
@@ -77,8 +81,8 @@ Public Class TestControl
     Inherits Control
 
     Sub New()
-        VAlign = Alignment.Bottom
-        HAlign = Alignment.Rigth
+        VAlign = Alignment.Top
+        HAlign = Alignment.Center
         Width = 150
         Height = 50
         Margin = New Thickness(5, 10)
@@ -96,14 +100,8 @@ Public Class TestControl
     End Sub
     Private Sub TestControl_MouseExit(ByVal sender As Object, ByVal e As Engine.MouseEventArgs) Handles Me.MouseExit
         DefaultBrush.Color = Color.Yellow
+
     End Sub
 
-    Protected Overrides Sub Draw(ByVal context As Engine.DrawContext, ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
-        MyBase.Draw(context, timeElapsed, totalTimeElapsed)
-        'Debug.Print(DrawRect.ToString())
-    End Sub
-    Protected Overrides Sub Update(ByVal timeElapsed As Double?, ByVal totalTimeElapsed As Double?)
-        MyBase.Update(timeElapsed, totalTimeElapsed)
-        'Debug.Print(DimensionRect.ToString() & " " & Container.DimensionRect.ToString())
-    End Sub
+  
 End Class
