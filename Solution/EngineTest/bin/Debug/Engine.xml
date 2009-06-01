@@ -6,29 +6,7 @@ Engine
 </name>
 </assembly>
 <members>
-<member name="P:Engine.Button.IsPressed">
-	<summary>
-	</summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Engine.Button.CommandName">
-	<summary>
-	</summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Engine.Button.CommandArgument">
-	<summary>
-	</summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="T:Engine.Button">
-	<summary>
-	</summary>
-	<remarks></remarks>
-</member><member name="P:Engine.Brush.Color">
+<member name="P:Engine.Brush.Color">
 	<summary>
 	</summary>
 	<value></value>
