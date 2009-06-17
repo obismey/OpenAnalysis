@@ -31,6 +31,7 @@ Namespace Xna
     Public Class GraphicsDeviceService
         Implements IGraphicsDeviceService
 
+
 #Region "Fields"
 
         ' Singleton device service instance.
