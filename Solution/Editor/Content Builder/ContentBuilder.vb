@@ -13,7 +13,7 @@ Imports Microsoft.Build.Framework
 ''' in a temporary directory. After the build finishes, you can use a regular
 ''' ContentManager to load these temporary .xnb files in the usual way.
 ''' </summary>
-Class ContentBuilder
+Public Class ContentBuilder
     Implements IDisposable
 
 #Region "Fields"
