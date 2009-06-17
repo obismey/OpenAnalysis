@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,13 +10,16 @@
     <RootNamespace>Core</RootNamespace>
     <AssemblyName>Core</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-  </PropertyGroup>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+		<NoStandardLib>True</NoStandardLib>
+		<SdkPath>c:\sdk</SdkPath>
+	</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -25,7 +28,9 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-  </PropertyGroup>
+    <DefineConstants>_MYTYPE="Empty",novbruntimeref="True"</DefineConstants>
+		<SdkPath>c:\sdk</SdkPath>
+	</PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
@@ -34,28 +39,31 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Core.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-  </PropertyGroup>
+    <DefineConstants>_MYTYPE="Empty",novbruntimeref="True"</DefineConstants>
+		<novbruntimeref>True</novbruntimeref>
+		<SdkPath>c:\sdk</SdkPath>
+	</PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
-    <Import Include="System.Data" />
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="%28Enums%29.vb" />
     <Compile Include="Action.vb" />
-    <Compile Include="BaseAttribute.vb" />
-    <Compile Include="BaseException.vb" />
-    <Compile Include="BaseObject.vb" />
-    <Compile Include="BaseProperty.vb" />
+    <Compile Include="Base\BaseAttribute.vb" />
+    <Compile Include="Base\BaseException.vb" />
+    <Compile Include="Base\BaseObject.vb" />
+    <Compile Include="Base\BaseProperty.vb" />
     <Compile Include="%28Delegates%29.vb" />
+    <Compile Include="Base\BasePropertyKey.vb" />
+    <Compile Include="Value Sources\ConstantValueSource.vb" />
+    <Compile Include="RessourceString.vb" />
     <Compile Include="Design Attributes\AttributeOverrider.vb" />
     <Compile Include="Design Attributes\BrowsableAttribute.vb" />
     <Compile Include="Design Attributes\DefaultValueAttribute.vb" />
@@ -65,48 +73,29 @@
     <Compile Include="Design Attributes\DesignOnlyAttribute.vb" />
     <Compile Include="Design Attributes\DisplayNameAttribute.vb" />
     <Compile Include="Design Attributes\EditorAttribute.vb" />
+    <Compile Include="Design Attributes\InstanceDescriptorProviderAttribute.vb" />
+    <Compile Include="Design Attributes\OutlineNodeIconeAttribute.vb" />
     <Compile Include="Design Attributes\RefreshPropertiesAttribute.vb" />
+    <Compile Include="Design Attributes\RessourceKeyAttribute.vb" />
     <Compile Include="Design Attributes\ServiceDirectiveAttribute.vb" />
     <Compile Include="ExecutionContext.vb" />
+    <Compile Include="Design Class\IBaseComponent.vb" />
+    <Compile Include="Design Class\IBaseContainer.vb" />
+    <Compile Include="Value Sources\IExtentedProperty.vb" />
+    <Compile Include="Design Class\IInstanceDescriptorProvider.vb" />
+    <Compile Include="InstanceDescriptor.vb" />
+    <Compile Include="Persistence\IPersistable.vb" />
     <Compile Include="IUpdateable.vb" />
-    <Compile Include="ILogger.vb" />
+    <Compile Include="Design Class\ILogger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="My Project\Application.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Settings.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="IValueSource.vb" />
+    <Compile Include="Value Sources\IValueSource.vb" />
+    <Compile Include="Persistence\PersistenceContext.vb" />
     <Compile Include="PropertyChangedArgs.vb" />
+    <Compile Include="Value Sources\PropertyValueSource.vb" />
     <Compile Include="State.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
-    </None>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
