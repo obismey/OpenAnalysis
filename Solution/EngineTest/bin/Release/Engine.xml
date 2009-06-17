@@ -587,38 +587,6 @@ Engine
 	<summary>
 	</summary>
 	<remarks></remarks>
-</member><member name="P:Engine.GridContainer.Column(Engine.Control)">
-	<summary>
-	</summary>
-	<param name="child"></param>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Engine.GridContainer.Row(Engine.Control)">
-	<summary>
-	</summary>
-	<param name="child"></param>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Engine.GridContainer.ColumnSpan(Engine.Control)">
-	<summary>
-	</summary>
-	<param name="child"></param>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:Engine.GridContainer.RowSpan(Engine.Control)">
-	<summary>
-	</summary>
-	<param name="child"></param>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="T:Engine.GridDefinition">
-	<summary>
-	</summary>
-	<remarks>Addiftif</remarks>
 </member><member name="P:Engine.AlphaBlendState.None">
 	<summary>State that disables Alpha Blending</summary>
 </member><member name="P:Engine.AlphaBlendState.Alpha">
@@ -720,6 +688,36 @@ Engine
 	<summary>
  Gets/Sets the blending function destination (existing pixel) input multiply value, this value only effects the alpha channel and only when <see cref="P:Engine.AlphaBlendState.SeparateAlphaBlendEnabled"/> is true. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
  </summary>
+</member><member name="P:Engine.ParticleSystem.Bounds">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleSystem.ParticleCount">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleSystem.SpeedFactor">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Resume">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Stop">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Pause">
+	<summary>
+	</summary>
+	<remarks></remarks>
 </member><member name="M:Engine.DepthColourCullState.op_Explicit(System.UInt16)~Engine.DepthColourCullState">
 	<summary></summary>
 	<param name="state"></param>
@@ -780,6 +778,67 @@ Engine
 	<summary>
  Gets/Sets a mask for the <see cref="P:Engine.DepthColourCullState.FillMode"/> for the device (eg, <see cref="F:Microsoft.Xna.Framework.Graphics.FillMode.WireFrame"/> or <see cref="F:Microsoft.Xna.Framework.Graphics.FillMode.Solid"/>)
  </summary>
+</member><member name="P:Engine.ParticleAffector.Priority">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleAffector.Enabled">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleAffector.Affect(Engine.Particle@,System.Double,System.Double,System.Double)">
+	<summary>
+	</summary>
+	<param name="p"></param>
+	<param name="totalGametime"></param>
+	<param name="elapsedTime"></param>
+	<param name="ownerTime"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleAffector.SetOwner(Engine.ParticleEmitter)">
+	<summary>
+	</summary>
+	<param name="cont"></param>
+	<remarks></remarks>
+</member><member name="T:Engine.ParticleAffector">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.Column(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.Row(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.ColumnSpan(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.RowSpan(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.GridDefinition">
+	<summary>
+	</summary>
+	<remarks>Addiftif</remarks>
 </member><member name="M:Engine.Root.LoadRessource``1(System.String,System.String)">
 	<summary>
 	</summary>
@@ -799,10 +858,16 @@ Engine
 	<param name="id"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:Engine.Root.LoadMusic(System.String)">
+</member><member name="M:Engine.Root.GetMusic(System.String)">
 	<summary>
 	</summary>
 	<param name="id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.Loaded(System.String)">
+	<summary>
+	</summary>
+	<param name="key"></param>
 	<returns></returns>
 	<remarks></remarks>
 </member><member name="P:Engine.Root.Focused">
