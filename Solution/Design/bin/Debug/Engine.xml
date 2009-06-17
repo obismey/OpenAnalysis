@@ -1,0 +1,902 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Engine
+</name>
+</assembly>
+<members>
+<member name="P:Engine.Button.IsPressed">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Button.CommandName">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Button.CommandArgument">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.Button">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.Brush.Color">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Brush.SourceRect">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Brush.ImageSource">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Brush.Draw(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+	<summary>
+	</summary>
+	<param name="rect"></param>
+	<param name="drawer"></param>
+	<remarks></remarks>
+</member><member name="T:Engine.Brush">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.ReArrange">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.AddChild(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.RemoveChild(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="Child"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.RemoveChild(System.Int32)">
+	<summary>
+	</summary>
+	<param name="index"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.GetAllowedDrawRect(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="vis"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.ControlContainer.GetAllowedClipRect(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="vis"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.ControlContainer">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.KeyboardEventArgs.Key">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.KeyboardEventArgs.Alt">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.KeyboardEventArgs.Shift">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.KeyboardEventArgs.Ctrl">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.KeyboardEventArgs">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.FreeCamera.SetParams(Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3,Microsoft.Xna.Framework.Vector3)">
+	<summary>
+	</summary>
+	<param name="__position"></param>
+	<param name="__direction"></param>
+	<param name="__up"></param>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Strech">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Center">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Left">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Rigth">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Top">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Alignment.Bottom">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.Alignment">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.ClickMode.Hover">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.ClickMode.Pressed">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.ClickMode.Released">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.ClickMode">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.RelativeTo.Auto">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.RelativeTo.Ignore">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.RelativeTo.Absolute">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.RelativeTo.Parent">
+	<summary>
+ Relatif aux dimensions du parent
+ </summary>
+	<remarks></remarks>
+</member><member name="T:Engine.RelativeTo">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.DockState.Fill">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.DockState.Top">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.DockState.Left">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.DockState.Bottom">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.DockState.Right">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.DockState">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Visibility.Visible">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Visibility.Collapsed">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.Visibility.Hidden">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.Visibility">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.StackDirection.Vertical">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.StackDirection.Horizontal">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.StackDirection">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.MouseEventArgs.Button">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.MouseEventArgs.ScrollWheelValue">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.MouseEventArgs.ScrollWheelDelta">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.MouseEventArgs.GetPosition(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="relativeTo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.MouseEventArgs">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.AlphaTestState.op_Explicit(System.UInt16)~Engine.AlphaTestState">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaTestState.op_Implicit(Engine.AlphaTestState)~System.UInt16">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaTestState.op_Equality(Engine.AlphaTestState,Engine.AlphaTestState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaTestState.op_Inequality(Engine.AlphaTestState,Engine.AlphaTestState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaTestState.Equals(System.Object)">
+	<summary></summary>
+	<param name="obj"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaTestState.GetHashCode">
+	<summary>
+ Gets the hash code (direct copy of the internal bitfield value)
+ </summary>
+	<returns></returns>
+</member><member name="P:Engine.AlphaTestState.Enabled">
+	<summary>
+ Gets/Sets if alpha testing is enabled
+ </summary>
+</member><member name="P:Engine.AlphaTestState.AlphaTestFunction">
+	<summary>
+ Gets/Sets the alpha testing comparison function
+ </summary>
+</member><member name="P:Engine.AlphaTestState.ReferenceAlpha">
+	<summary>
+ Gets/Sets the reference value used in the alpha testing comparison
+ </summary>
+</member><member name="M:Engine.DrawContext.#ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.View">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.Projection">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.World">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.ElapsedTime">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.GameTime">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.CameraPosition">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.CameraDirection">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.CameraUp">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.Device">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.DrawContext.GetVariante(Engine.DrawContext.MatrixSource,Engine.DrawContext.MatrixVariante)">
+	<summary>
+	</summary>
+	<param name="source"></param>
+	<param name="variante"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.DrawContext.GetRandom(System.Single[],System.Single[])">
+	<summary>
+	</summary>
+	<param name="bound1"></param>
+	<param name="bound2"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.DrawContext.ViewportIndex">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.DrawContext">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.None">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.Left">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.Middle">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.Rigth">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.X1">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="F:Engine.MouseButton.X2">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="T:Engine.MouseButton">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.projMatrix">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.viewMatrix">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.AspectRatio">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.NearPlaneDistance">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.FarPlaneDistance">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.Fov">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.Position">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.Direction">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.Up">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ICamera.Frustrum">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.ICamera">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Width">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Height">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.HAlign">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.VAlign">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Margin">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.DimensionRect">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Name">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Text">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.DefaultBrush">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.BorderBrush">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Visiblility">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Enabled">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Focusable">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.Zindex">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Control.GetPosition(Engine.Control,System.Boolean,System.Boolean,Microsoft.Xna.Framework.Vector2)">
+	<summary>
+	</summary>
+	<param name="space"></param>
+	<param name="sourceIsrelative"></param>
+	<param name="resultIsRelative"></param>
+	<param name="point"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Control.DrawRect">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.Control">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.AlphaBlendState.None">
+	<summary>State that disables Alpha Blending</summary>
+</member><member name="P:Engine.AlphaBlendState.Alpha">
+	<summary>State that enables standard Alpha Blending (blending based on the alpha value of the source component, desitination colour is interpolated to the source colour based on source alpha)</summary>
+</member><member name="P:Engine.AlphaBlendState.PremodulatedAlpha">
+	<summary>State that enables Premodulated Alpha Blending (Assumes the source colour data has been premodulated with the source alpha value, useful for reducing colour bleeding and accuracy problems at alpha edges)</summary>
+</member><member name="P:Engine.AlphaBlendState.AlphaAdditive">
+	<summary>State that enables Additive Alpha Blending (blending based on the alpha value of the source component, the desitination colour is added to the source colour modulated by alpha)</summary>
+</member><member name="P:Engine.AlphaBlendState.Additive">
+	<summary>State that enables standard Additive Blending (the alpha value is ignored, the desitination colour is added to the source colour)</summary>
+</member><member name="P:Engine.AlphaBlendState.AdditiveSaturate">
+	<summary>State that enables Additive Saturate Blending (the alpha value is ignored, the desitination colour is added to the source colour, however the source colour is multipled by the inverse of the destination colour, preventing the addition from blowing out to pure white (eg, 0.75 + 0.75 * (1-0.75) = 0.9375))</summary>
+</member><member name="P:Engine.AlphaBlendState.Modulate">
+	<summary>State that enables Modulate (multiply) Blending (the alpha value is ignored, the desitination colour is multipled with the source colour)</summary>
+</member><member name="P:Engine.AlphaBlendState.ModulateAdd">
+	<summary>State that enables Modulate Add (multiply+add) Blending (the alpha value is ignored, the desitination colour multipled with the source colour is added to the desitnation colour)</summary>
+</member><member name="P:Engine.AlphaBlendState.ModulateX2">
+	<summary>State that enables Modulate (multiply) Blending, scaled by 2 (the alpha value is ignored, the desitination colour is multipled with the source colour, scaled by two)</summary>
+</member><member name="M:Engine.AlphaBlendState.op_Explicit(System.Int32)~Engine.AlphaBlendState">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.op_Implicit(Engine.AlphaBlendState)~System.Int32">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.op_Equality(Engine.AlphaBlendState,Engine.AlphaBlendState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.op_Inequality(Engine.AlphaBlendState,Engine.AlphaBlendState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.Equals(System.Object)">
+	<summary></summary>
+	<param name="obj"></param>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.GetHashCode">
+	<summary>
+ Gets the hash code, eqivalent to the internal bitfield
+ </summary>
+	<returns></returns>
+</member><member name="M:Engine.AlphaBlendState.SetToNoBlending">
+	<summary>Set the render state to no Alpha Blending, resetting all states (This is not equivalent to setting <see cref="P:Engine.AlphaBlendState.Enabled"/> to false, however it has the same effect)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToAlphaBlending">
+	<summary>Set the render state to standard Alpha Blending (blending based on the alpha value of the source component, desitination colour is interpolated to the source colour based on source alpha)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToAdditiveBlending">
+	<summary>Set the render state to Additive Alpha Blending (blending based on the alpha value of the source component, the desitination colour is added to the source colour modulated by alpha)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToPremodulatedAlphaBlending">
+	<summary>Set the render state to Premodulated Alpha Blending (Assumes the source colour data has been premodulated with the inverse of the alpha value, useful for reducing colour bleeding and accuracy problems at alpha edges)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToAlphaAdditiveBlending">
+	<summary>Set the render state to Additive Alpha Blending (blending based on the alpha value of the source component, the desitination colour is added to the source colour modulated by alpha)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToAdditiveSaturateBlending">
+	<summary>Set the render state to Additive Saturate Blending (the alpha value is ignored, the desitination colour is added to the source colour, however the source colour is multipled by the inverse of the destination colour, preventing the addition from blowing out to pure white (eg, 0.75 + 0.75 * (1-0.75) = 0.9375))</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToModulateBlending">
+	<summary>Set the render state to Modulate (multiply) Blending (the alpha value is ignored, the desitination colour is multipled with the source colour)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToModulateAddBlending">
+	<summary>Set the render state to Modulate Add (multiply+add) Blending (the alpha value is ignored, the desitination colour multipled with the source colour is added to the desitnation colour)</summary>
+</member><member name="M:Engine.AlphaBlendState.SetToModulateX2Blending">
+	<summary>Set the render state to Modulate (multiply) Blending, scaled by 2 (the alpha value is ignored, the desitination colour is multipled with the source colour, scaled by two)</summary>
+</member><member name="M:Engine.AlphaBlendState.#ctor(Microsoft.Xna.Framework.Graphics.Blend,Microsoft.Xna.Framework.Graphics.Blend)">
+	<summary>
+ Create a alpha blend state with the given source and destination blend modes
+ </summary>
+	<param name="sourceBlend"></param>
+	<param name="destinationBlend"></param>
+</member><member name="P:Engine.AlphaBlendState.Enabled">
+	<summary>
+ Gets/Sets if alpha blending is enabled
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.SeparateAlphaBlendEnabled">
+	<summary>
+ Gets/Sets if separate alpha blending is enabled (Separate alpha blending applies an alternative blend equation to the alpha channel than the RGB channels). See <see cref="P:Engine.AlphaBlendState.BlendOperationAlpha"/>, <see cref="P:Engine.AlphaBlendState.SourceBlendAlpha"/> and <see cref="P:Engine.AlphaBlendState.DestinationBlendAlpha"/>
+	</summary>
+</member><member name="P:Engine.AlphaBlendState.BlendOperation">
+	<summary>
+ Gets/Sets the blending function operation. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.BlendOperationAlpha">
+	<summary>
+ Gets/Sets the blending function operation, this value only effects the alpha channel and only when <see cref="P:Engine.AlphaBlendState.SeparateAlphaBlendEnabled"/> is true. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.SourceBlend">
+	<summary>
+ Gets/Sets the blending function source (drawn pixel) input multiply value. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.DestinationBlend">
+	<summary>
+ Gets/Sets the blending function destination (existing pixel) input multiply value. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.SourceBlendAlpha">
+	<summary>
+ Gets/Sets the blending function source (drawn pixel) input multiply value, this value only effects the alpha channel and only when <see cref="P:Engine.AlphaBlendState.SeparateAlphaBlendEnabled"/> is true. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.AlphaBlendState.DestinationBlendAlpha">
+	<summary>
+ Gets/Sets the blending function destination (existing pixel) input multiply value, this value only effects the alpha channel and only when <see cref="P:Engine.AlphaBlendState.SeparateAlphaBlendEnabled"/> is true. See <see cref="T:Engine.AlphaBlendState"/> remarks for details
+ </summary>
+</member><member name="P:Engine.ParticleSystem.Bounds">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleSystem.ParticleCount">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleSystem.SpeedFactor">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Resume">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Stop">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleSystem.Pause">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:Engine.DepthColourCullState.op_Explicit(System.UInt16)~Engine.DepthColourCullState">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.DepthColourCullState.op_Implicit(Engine.DepthColourCullState)~System.UInt16">
+	<summary></summary>
+	<param name="state"></param>
+	<returns></returns>
+</member><member name="M:Engine.DepthColourCullState.op_Equality(Engine.DepthColourCullState,Engine.DepthColourCullState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.DepthColourCullState.op_Inequality(Engine.DepthColourCullState,Engine.DepthColourCullState)">
+	<summary></summary>
+	<param name="a"></param>
+	<param name="b"></param>
+	<returns></returns>
+</member><member name="M:Engine.DepthColourCullState.Equals(System.Object)">
+	<summary></summary>
+	<param name="obj"></param>
+	<returns></returns>
+</member><member name="M:Engine.DepthColourCullState.GetHashCode">
+	<summary>
+ Gets the hash code. Returned value is the internal bitfield value
+ </summary>
+	<returns></returns>
+</member><member name="P:Engine.DepthColourCullState.DepthTestEnabled">
+	<summary>
+ Gets/Sets if depth testing is enabled
+ </summary>
+	<remarks><para>If depth testing is disabled, then pixels will always be drawn, even if they are behind another object on screen.</para></remarks>
+</member><member name="P:Engine.DepthColourCullState.DepthWriteEnabled">
+	<summary>
+ Gets/Sets if depth writing is enabled
+ </summary>
+	<remarks><para>If depth writing is disabled, pixels that are drawn will still go through normal depth testing, however they will not write a new depth value into the depth buffer. This is most useful for transparent effects, and any effect that does not have a physical representation (eg, a light cone, particle effects, etc).</para>
+		<para>Usually, 'solid' objects with depth writing enabled will be drawn first. Such as the world, characters, models, etc. Then non-solid and effect geometry is drawn without depth writing. If this order is reversed, the solid geometry can overwrite the effects.</para></remarks>
+</member><member name="P:Engine.DepthColourCullState.DepthTestFunction">
+	<summary>
+ Changes the comparsion function used when depth testing. WARNING:  On some video cards, changing this value can disable hierarchical z-buffer optimizations for the rest of the frame
+ </summary>
+	<remarks>
+		<para>Changing the depth test function from Less to Greater midframe is <i>not recommended</i>.</para>
+		<para>Changing between <see cref="F:Microsoft.Xna.Framework.Graphics.CompareFunction.LessEqual"/> and <see cref="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Equal"/> is usually OK.</para>
+		<para>On newer video cards, keeping the depth test function consistent throughout the frame will still maintain peek effciency, however some older cards are only full speed when using <see cref="F:Microsoft.Xna.Framework.Graphics.CompareFunction.LessEqual"/> or <see cref="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Equal"/></para>
+		<para>Setting <see cref="P:Engine.DepthColourCullState.DepthTestEnabled"/> to false is the preferred to using <see cref="F:Microsoft.Xna.Framework.Graphics.CompareFunction.Always"/>.</para>
+	</remarks>
+</member><member name="P:Engine.DepthColourCullState.CullMode">
+	<summary>
+ Gets/Sets the backface culling render state. Default value of <see cref="F:Microsoft.Xna.Framework.Graphics.CullMode.CullCounterClockwiseFace">CullCounterClockwiseFace</see>
+	</summary>
+</member><member name="P:Engine.DepthColourCullState.ColourWriteMask">
+	<summary>
+ Gets/Sets a mask for the colour channels (RGBA) that are written to the colour buffer. Set to <see cref="F:Microsoft.Xna.Framework.Graphics.ColorWriteChannels.None"/> to disable all writing to the colour buffer.
+ </summary>
+</member><member name="P:Engine.DepthColourCullState.FillMode">
+	<summary>
+ Gets/Sets a mask for the <see cref="P:Engine.DepthColourCullState.FillMode"/> for the device (eg, <see cref="F:Microsoft.Xna.Framework.Graphics.FillMode.WireFrame"/> or <see cref="F:Microsoft.Xna.Framework.Graphics.FillMode.Solid"/>)
+ </summary>
+</member><member name="P:Engine.ParticleAffector.Priority">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.ParticleAffector.Enabled">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleAffector.Affect(Engine.Particle@,System.Double,System.Double,System.Double)">
+	<summary>
+	</summary>
+	<param name="p"></param>
+	<param name="totalGametime"></param>
+	<param name="elapsedTime"></param>
+	<param name="ownerTime"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.ParticleAffector.SetOwner(Engine.ParticleEmitter)">
+	<summary>
+	</summary>
+	<param name="cont"></param>
+	<remarks></remarks>
+</member><member name="T:Engine.ParticleAffector">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.Column(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.Row(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.ColumnSpan(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.GridContainer.RowSpan(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="child"></param>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:Engine.GridDefinition">
+	<summary>
+	</summary>
+	<remarks>Addiftif</remarks>
+</member><member name="M:Engine.Root.LoadRessource``1(System.String,System.String)">
+	<summary>
+	</summary>
+	<typeparam name="T"></typeparam>
+	<param name="path"></param>
+	<param name="name"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.GetTexture(System.String)">
+	<summary>
+	</summary>
+	<param name="id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.GetSound(System.String)">
+	<summary>
+	</summary>
+	<param name="id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.GetMusic(System.String)">
+	<summary>
+	</summary>
+	<param name="id"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.Loaded(System.String)">
+	<summary>
+	</summary>
+	<param name="key"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Engine.Root.Focused">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.NotifyFocusChange(Engine.Control)">
+	<summary>
+	</summary>
+	<param name="source"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.RegisterWindow(Engine.Window)">
+	<summary>
+	</summary>
+	<param name="window"></param>
+	<remarks></remarks>
+</member><member name="M:Engine.Root.UnRegisterWindow(Engine.Window)">
+	<summary>
+	</summary>
+	<param name="window"></param>
+	<remarks>All ressource related to window will be destroy. Call once </remarks>
+</member><member name="P:Engine.Root.ActiveWindow">
+	<summary>
+	</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
