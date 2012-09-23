@@ -1,12 +1,43 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTest0", "GameTest0\GameTest0\GameTest0.csproj", "{65D93E93-E6E7-433D-8E28-396F1DE6C1BD}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "GameTest0Content", "GameTest0\GameTest0Content\GameTest0Content.contentproj", "{07ACB46D-D5E8-4D4D-ABC8-006AEB05608D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLibraryTest0", "GameLibraryTest0\GameLibraryTest0.csproj", "{38DA7A02-B456-4DEC-BA30-F69B0103D644}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 1
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs01
 		SccLocalPath0 = .
+		SccProjectUniqueName1 = GameTest0\\GameTest0\\GameTest0.csproj
+		SccProjectName1 = GameTest0/GameTest0
+		SccLocalPath1 = GameTest0\\GameTest0
+		SccProjectUniqueName2 = GameTest0\\GameTest0Content\\GameTest0Content.contentproj
+		SccProjectName2 = GameTest0/GameTest0Content
+		SccLocalPath2 = GameTest0\\GameTest0Content
+		SccProjectUniqueName3 = GameLibraryTest0\\GameLibraryTest0.csproj
+		SccProjectName3 = GameLibraryTest0
+		SccLocalPath3 = GameLibraryTest0
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65D93E93-E6E7-433D-8E28-396F1DE6C1BD}.Debug|x86.ActiveCfg = Debug|x86
+		{65D93E93-E6E7-433D-8E28-396F1DE6C1BD}.Debug|x86.Build.0 = Debug|x86
+		{65D93E93-E6E7-433D-8E28-396F1DE6C1BD}.Release|x86.ActiveCfg = Release|x86
+		{65D93E93-E6E7-433D-8E28-396F1DE6C1BD}.Release|x86.Build.0 = Release|x86
+		{07ACB46D-D5E8-4D4D-ABC8-006AEB05608D}.Debug|x86.ActiveCfg = Debug|x86
+		{07ACB46D-D5E8-4D4D-ABC8-006AEB05608D}.Release|x86.ActiveCfg = Release|x86
+		{38DA7A02-B456-4DEC-BA30-F69B0103D644}.Debug|x86.ActiveCfg = Debug|x86
+		{38DA7A02-B456-4DEC-BA30-F69B0103D644}.Debug|x86.Build.0 = Debug|x86
+		{38DA7A02-B456-4DEC-BA30-F69B0103D644}.Release|x86.ActiveCfg = Release|x86
+		{38DA7A02-B456-4DEC-BA30-F69B0103D644}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
