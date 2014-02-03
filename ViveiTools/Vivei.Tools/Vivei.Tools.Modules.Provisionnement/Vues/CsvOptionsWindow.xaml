@@ -1,0 +1,34 @@
+﻿<Window x:Class="CsvOptionsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MaxWidth="400"
+        xmlns:system="clr-namespace:System;assembly=mscorlib" 
+    Title="Options" SizeToContent="WidthAndHeight">
+    <Grid Margin="5">
+        <StackPanel>
+            <UniformGrid Rows="2" Columns="2">
+                <TextBlock   Text="Separateur" Margin="5" VerticalAlignment="Center" />
+                <TextBox Name="CsvSeparateurTextBox" x:FieldModifier="Public" Margin="5" Text=";"  FontWeight="Bold" FontSize="14" />
+                <TextBlock Text="Decimal" Margin="5" VerticalAlignment="Center" />
+                <ComboBox x:FieldModifier="Public" Name="DecimalComboBox"  Margin="5" Text="," FontWeight="Bold" FontSize="14" SelectedIndex="1" >
+                    <ComboBoxItem Content="Point" />
+                    <ComboBoxItem Content="Virgule" />
+                </ComboBox>
+            </UniformGrid>
+            <DataGrid x:FieldModifier="Public"  Name="CsvDatagrid" AutoGenerateColumns="False" ColumnWidth="*" CanUserAddRows="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="Nom"  Binding="{Binding Name}"/>
+                    <DataGridComboBoxColumn Header="Type" SelectedItemBinding="{Binding Path=Type, Mode=TwoWay}" >
+                        <DataGridComboBoxColumn.ItemsSource>
+                            <x:Array Type="{x:Type system:String}">
+                                <system:String>Nombre</system:String>
+                                <system:String>Texte</system:String>
+                                <system:String>Date</system:String>
+                            </x:Array>
+                        </DataGridComboBoxColumn.ItemsSource>
+                    </DataGridComboBoxColumn>
+                    <DataGridTextColumn Header="Format" Binding="{Binding Path=Format, Mode=TwoWay}"/>
+                </DataGrid.Columns>
+            </DataGrid>            
+        </StackPanel>
+    </Grid>
+</Window>

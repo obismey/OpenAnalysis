@@ -1,0 +1,31 @@
+﻿<sap:ActivityDesigner 
+    x:Class="SqlQueryActivityDesigner"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:system="clr-namespace:System;assembly=mscorlib" 
+    xmlns:sap="clr-namespace:System.Activities.Presentation;assembly=System.Activities.Presentation"
+    xmlns:sapv="clr-namespace:System.Activities.Presentation.View;assembly=System.Activities.Presentation"  Collapsible="True" 
+   Name="Root"  BorderBrush="{x:Null}" BorderThickness="0" >
+
+    <Grid>
+        
+      
+        <Grid Margin="5" >
+            <Grid.Visibility>
+                <Binding Path="ShowExpanded">
+                    <Binding.Converter>
+                        <BooleanToVisibilityConverter />
+                    </Binding.Converter>
+                </Binding>
+            </Grid.Visibility>
+
+        <Button Click="Button_Click" Margin="5" FontSize="12" FontWeight="Bold" Foreground="Green" Content ="Cliquer ici pour modifier le code SQL" Padding="5" Background="White"  />
+
+
+        <Border  Visibility="Collapsed" Name="ErrorBorder" CornerRadius="10" BorderThickness="2" BorderBrush="Black" Background="White" Margin="5" >
+            <TextBlock Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"   FontSize="12" FontWeight="Bold" Foreground="Red" Text="Aucune table de données externes chargée" />
+        </Border>
+    </Grid> 
+    </Grid>
+</sap:ActivityDesigner>
+

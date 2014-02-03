@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="SimpleDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vivei.Tools.Modules.Provisionnement" 
+             Background="White" 
+             Name="UserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" 
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:ObjectToNamedObjectConverter x:Key="ObjectToNamedObjectConverter" />
+        <Style TargetType="{x:Type local:SimpleDashboardZone}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:SimpleDashboardZone}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Name="ContainerGrid" x:FieldModifier="Public" />
+        <Border  x:FieldModifier="Public"  Name="EditBorder" Visibility="Collapsed"  Margin="5" BorderThickness="1" BorderBrush="Black" DataContext="{Binding Mode=TwoWay, Path=SelectedElement, ElementName=UserControl}" >
+            <!--<StackPanel Orientation="Horizontal" Margin="5" >
+                <StackPanel MinWidth="100"  Visibility="Collapsed">
+                    <ComboBox Name="StyleElementComboBox" Background="White" SelectedIndex="0" >
+                        <ComboBoxItem Content="TableRange" />
+                        <ComboBoxItem Content="DataBodyRange" />
+                        <ComboBoxItem Content="RowRange" />
+                        <ComboBoxItem Content="ColumnRange" />
+                        <ComboBoxItem Content="CaptionRange" />
+                        <ComboBoxItem Content="LabelRange" />
+                        <ComboBoxItem Content="DataRange" />
+                    </ComboBox>
+                    <ComboBox Background="White" />
+                    <ComboBox Background="White" />
+                </StackPanel>
+                <ComboBox Name="BackgroundStyleElementComboBox" SelectedItem="{Binding  Mode=TwoWay, Path=Background, Converter={StaticResource ObjectToNamedObjectConverter}}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="5" ItemsSource="{x:Static local:StandardBrushes.Items}" Background="White" SelectedIndex="0" MinHeight="50" Height="58" Width="77" MinWidth="50">
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Margin="1" Name="Rect" Fill="{Binding Value}" Width="15" Height="15" Stroke="Black" StrokeThickness="1" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=IsDropDownOpen}" Value="False">
+                                    <Setter TargetName="Rect" Property="Width" Value="50" />
+                                    <Setter TargetName="Rect" Property="Height" Value="50" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                <ComboBox Name="BorderBrushStyleElementComboBox"  SelectedItem="{Binding  Mode=TwoWay, Path=BorderBrush, Converter={StaticResource ObjectToNamedObjectConverter}}" Height="58" Width="77"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="5" ItemsSource="{x:Static local:StandardBrushes.Items}" Background="White" SelectedIndex="0" MinHeight="50" MinWidth="50">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Name="Rect" Fill="{Binding Value}" Width="15" Height="15"  Stroke="Black" StrokeThickness="1" Margin="1"/>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=IsDropDownOpen}" Value="False">
+                                    <Setter TargetName="Rect" Property="Width" Value="50" />
+                                    <Setter TargetName="Rect" Property="Height" Value="50" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid  />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                <Grid   Width="100"  Margin="5"  >
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=BorderThickness, Converter={StaticResource ObjectToNamedObjectConverter}}" SelectedIndex="0" HorizontalContentAlignment="Stretch"  VerticalContentAlignment="Center" Background="White" ItemsSource="{x:Static local:StandardBorderThickness.Items}" Margin="0,0,0,1" >
+                        <ComboBox.ItemTemplate >
+                            <DataTemplate >-->
+                                <!--<TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch"  Foreground="White" Background="Black"  TextAlignment="Center" VerticalAlignment="Center"  Margin="0,2"  />-->
+                                <!--<Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="{Binding Value}" VerticalAlignment="Center"  Margin="0,2"  />-->
+                            <!--</DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <ComboBox Grid.Row="1"  SelectedItem="{Binding  Mode=TwoWay, Path=CornerRadius, Converter={StaticResource ObjectToNamedObjectConverter}}" SelectedIndex="0" HorizontalContentAlignment="Stretch"  VerticalContentAlignment="Center" Background="White" ItemsSource="{x:Static local:StandardCornerRadius.Items}" Margin="0,1,0,0">
+                        <ComboBox.ItemTemplate >
+                            <DataTemplate >-->
+                                <!--<TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch"  Foreground="White" Background="Black"  TextAlignment="Center" VerticalAlignment="Center"  Margin="0,2"  />-->
+                                <!--<Rectangle HorizontalAlignment="Stretch" Fill="Black" Height="{Binding Value}" VerticalAlignment="Center"  Margin="0,2"  />-->
+                            <!--</DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+                <ComboBox Name="ForegroundStyleElementComboBox"  SelectedItem="{Binding  Mode=TwoWay, Path=Foreground, Converter={StaticResource ObjectToNamedObjectConverter}}" Height="58" Width="77"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="5" ItemsSource="{x:Static local:StandardBrushes.Items}" Background="White" SelectedIndex="0" MinHeight="50" MinWidth="50">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Name="Rect" Fill="{Binding Value}" Width="15" Height="15"  Stroke="Black" StrokeThickness="1" Margin="1"/>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ComboBox}, Path=IsDropDownOpen}" Value="False">
+                                    <Setter TargetName="Rect" Property="Width" Value="50" />
+                                    <Setter TargetName="Rect" Property="Height" Value="50" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid  />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=FontFamily, Converter={StaticResource ObjectToNamedObjectConverter}}" Margin="5" SelectedIndex="0" VerticalContentAlignment="Center" Background="White" ItemsSource="{x:Static local:StantardFonts.Families}" >
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontFamily="{Binding Value}"  Margin="5,2,5,2"  />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=FontWeight, Converter={StaticResource ObjectToNamedObjectConverter}}" Background="White"   Margin="5" SelectedIndex="0" VerticalContentAlignment="Center" ItemsSource="{x:Static local:StantardFonts.Weights}" >
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontWeight="{Binding Value}"  Margin="5,2,5,2"  />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=FontStyle, Converter={StaticResource ObjectToNamedObjectConverter}}" Background="White" Margin="5" SelectedIndex="0" VerticalContentAlignment="Center"  ItemsSource="{x:Static local:StantardFonts.Styles}" >
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" FontStyle="{Binding Value}"  Margin="5,2,5,2"  />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=HorizontalAlignment, Converter={StaticResource ObjectToNamedObjectConverter}}" Name="HAlignStyleElementComboBox" Background="White" Margin="5" SelectedIndex="0" VerticalContentAlignment="Center" ItemsSource="{x:Static local:StandardAlignment.Horizontal}" >
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5,2,5,2" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding  Mode=TwoWay, Path=VerticalAlignment, Converter={StaticResource ObjectToNamedObjectConverter}}" Name="VAlignStyleElementComboBox" Background="White" Margin="5" SelectedIndex="0" VerticalContentAlignment="Center" ItemsSource="{x:Static local:StandardAlignment.Vertical}" >
+                    <ComboBox.ItemTemplate >
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="5,2,5,2" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>-->
+        </Border>
+
+    </Grid>
+</UserControl>

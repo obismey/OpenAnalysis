@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{41604AD1-36D1-49A9-ABD9-5E35D5399C5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Vivei.Tools.Modules.Provisionnement</RootNamespace>
+    <AssemblyName>Vivei.Tools.Modules.Provisionnement</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Vivei.Tools.Core.Application\bin\Debug\Modules\ProvisionnementModule\</OutputPath>
+    <DocumentationFile>Vivei.Tools.Modules.Provisionnement.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Vivei.Tools.Modules.Provisionnement.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DbLinq">
+      <HintPath>..\..\..\..\..\Desktop\DbLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="DbLinq.Sqlite">
+      <HintPath>..\..\..\..\..\Desktop\DbLinq.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SharpDevelop\4.3\bin\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Chart.v10.3, Version=10.3.20103.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Controls.Charts.XamGauge.v10.3, Version=10.3.20103.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataVisualization.v10.3, Version=10.3.20103.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Infragistics\NetAdvantage 2010.3\WPF DV\CLR4.0\Bin\InfragisticsWPF4.DataVisualization.v10.3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v10.3, Version=10.3.20103.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Activities.Core.Presentation" />
+    <Reference Include="System.Activities.Presentation" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>SqlLite\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SimpleCsvReader.vb" />
+    <Compile Include="CustomGrid.vb" />
+    <Compile Include="Modele\Default\ArrayTriangleData.vb" />
+    <Compile Include="Modele\Default\DefaultCoefficientProcessor.vb" />
+    <Compile Include="Modele\Default\DefaultInternalDataRow.vb" />
+    <Compile Include="Modele\Default\DefaultInternalData.vb" />
+    <Compile Include="Modele\Default\DefaultInternalDataColumn.vb" />
+    <Compile Include="Modele\Default\DefaultSegmentProvider.vb" />
+    <Compile Include="Modele\Default\DefaultTriangleProvider.vb" />
+    <Compile Include="Modele\V2\DefaultProvider.vb" />
+    <Compile Include="NamedObject.vb" />
+    <Compile Include="StandardBrushes.vb" />
+    <Compile Include="StantardFonts.vb" />
+    <Compile Include="Vues\AnalysisWindow.xaml.vb">
+      <DependentUpon>AnalysisWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Query\QueryFilter.vb" />
+    <Compile Include="Vues\Query\QueryFilterValue.vb" />
+    <Compile Include="Vues\Query\QueryFilterValueType.vb" />
+    <Compile Include="Vues\Query\QueryFormula.vb" />
+    <Compile Include="Vues\Query\QueryRow.vb" />
+    <Compile Include="Vues\Query\QuerySort.vb" />
+    <Compile Include="Vues\Query\QuerySource.vb" />
+    <Compile Include="Vues\Query\QueryWindow.xaml.vb">
+      <DependentUpon>QueryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Simple Dashboard\SimpleDashboardDataStructureGrid.xaml.vb">
+      <DependentUpon>SimpleDashboardDataStructureGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Simple Dashboard\SimpleDashboardPropertyGrid.xaml.vb">
+      <DependentUpon>SimpleDashboardPropertyGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Simple Dashboard\SimpleDashboard.xaml.vb">
+      <DependentUpon>SimpleDashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Simple Dashboard\SimpleDashboardLayout.xaml.vb">
+      <DependentUpon>SimpleDashboardLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Simple Dashboard\SimpleDashboardZoneLayout.xaml.vb">
+      <DependentUpon>SimpleDashboardZoneLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\CsvOptionsWindow.xaml.vb">
+      <DependentUpon>CsvOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Module\ProvisionnementModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Project.vb" />
+    <Compile Include="ProjectItem.vb" />
+    <Compile Include="Vues\Query\SqlQueryData.vb" />
+    <Compile Include="Vues\TriangleView.xaml.vb">
+      <DependentUpon>TriangleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewAnalysis.xaml.vb">
+      <DependentUpon>ViewAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewDataModel.xaml.vb">
+      <DependentUpon>ViewDataModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewExternalData.xaml.vb">
+      <DependentUpon>ViewExternalData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewInternalData.xaml.vb">
+      <DependentUpon>ViewInternalData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewTraitementCode.xaml.vb">
+      <DependentUpon>ViewTraitementCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ViewTriangleStandard.xaml.vb">
+      <DependentUpon>ViewTriangleStandard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\AnalysisWorkflowDesigner.xaml.vb">
+      <DependentUpon>AnalysisWorkflowDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\QueryWorkflowDesigner.xaml.vb">
+      <DependentUpon>QueryWorkflowDesigner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\SqlQueryActivityDesigner.xaml.vb">
+      <DependentUpon>SqlQueryActivityDesigner.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vivei.Tools.Core\Vivei.Tools.Core.csproj">
+      <Project>{2095155C-8720-4C4C-AEC6-6EDE62652163}</Project>
+      <Name>Vivei.Tools.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vivei.Tools.Modules.Provisionnement.Core\Vivei.Tools.Modules.Provisionnement.Model.csproj">
+      <Project>{0EAD8E05-7707-4BF7-8C5A-D0546DE5F82B}</Project>
+      <Name>Vivei.Tools.Modules.Provisionnement.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SqlLite\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Vues\AnalysisWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\Query\QueryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\Simple Dashboard\SimpleDashboardDataStructureGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\Simple Dashboard\SimpleDashboardPropertyGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\Simple Dashboard\SimpleDashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\Simple Dashboard\SimpleDashboardLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\Simple Dashboard\SimpleDashboardZoneLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\CsvOptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vues\TriangleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewDataModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewExternalData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewInternalData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewTraitementCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\ViewTriangleStandard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\AnalysisWorkflowDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Workflow\QueryWorkflowDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <None Include="VbProjectTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Workflow\template.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Workflow\SqlQueryActivityDesigner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

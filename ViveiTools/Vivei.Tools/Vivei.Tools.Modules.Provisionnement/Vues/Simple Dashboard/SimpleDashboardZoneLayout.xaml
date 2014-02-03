@@ -1,0 +1,47 @@
+﻿<Window x:Class="SimpleDashboardZoneLayout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MaxWidth="400"
+    Title="Position de l'element" SizeToContent="WidthAndHeight" ShowInTaskbar="False" WindowStyle="ToolWindow"  >
+    <Grid Margin="5">
+        <StackPanel>
+            <UniformGrid Rows="4" Columns="2">
+                <TextBlock Text="Ligne" Margin="5" VerticalAlignment="Center" />
+                <Grid Margin="5" VerticalAlignment="Center"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding ElementName=RowSlider, Path=Value, StringFormat=N0}" Margin="5" VerticalAlignment="Center"  />
+                    <Slider Interval="1" Name="RowSlider" Grid.Column="1" VerticalAlignment="Center" x:FieldModifier="Public" Maximum="19" Minimum="0" SmallChange="1" LargeChange="2"/>                    
+                </Grid>
+                <TextBlock Text="Colonne" Margin="5" VerticalAlignment="Center" />
+                <Grid Margin="5" VerticalAlignment="Center"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding ElementName=ColumnSlider, Path=Value, StringFormat=N0}" Margin="5" VerticalAlignment="Center"  />
+                    <Slider Interval="1" Name="ColumnSlider" Grid.Column="1" VerticalAlignment="Center" x:FieldModifier="Public" Maximum="19" Minimum="0" SmallChange="1" LargeChange="2"/>
+                </Grid>
+                <TextBlock Text="Nombre de Lignes" Margin="5" VerticalAlignment="Center" />
+                <Grid Margin="5" VerticalAlignment="Center"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding ElementName=RowCountSlider, Path=Value, StringFormat=N0}" Margin="5" VerticalAlignment="Center"  />
+                    <Slider Interval="1" Name="RowCountSlider" Grid.Column="1" VerticalAlignment="Center" x:FieldModifier="Public" Maximum="20" Minimum="1" SmallChange="1" LargeChange="2"/>
+                </Grid>
+                <TextBlock Text="Nombre de Colonnes" Margin="5" VerticalAlignment="Center" />
+                <Grid Margin="5" VerticalAlignment="Center"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding ElementName=ColumnCountSlider, Path=Value, StringFormat=N0}" Margin="5" VerticalAlignment="Center"  />
+                    <Slider Interval="1" Name="ColumnCountSlider" Grid.Column="1" VerticalAlignment="Center" x:FieldModifier="Public" Maximum="20" Minimum="1" SmallChange="1" LargeChange="2"/>
+                </Grid>
+            </UniformGrid>           
+        </StackPanel>
+    </Grid>
+</Window>

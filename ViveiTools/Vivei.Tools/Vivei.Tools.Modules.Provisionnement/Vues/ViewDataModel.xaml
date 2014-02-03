@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ViewDataModel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:local="clr-namespace:Vivei.Tools.Modules.Provisionnement" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel  Orientation="Horizontal">
+            <Button Margin="5" Padding="5" Background="White" Content="Enregistrer le modele" Name="SaveButton" Click="SaveButton_Click"/>
+            <Button Margin="5" Padding="5" Background="White" Content="Charger un modele" Name="LoadButton" Click="LoadButton_Click" />
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding}" 
+                  Name="DataModelEditingDataGrid" 
+                  SelectionMode="Extended" 
+                  SelectionUnit="FullRow"
+                  ColumnWidth="*" 
+                  RowHeight="30" 
+                  AlternatingRowBackground="LightGray"  
+                  AutoGenerateColumns="False" 
+                  CanUserReorderColumns="False" 
+                  CanUserSortColumns="False" 
+                  CanUserAddRows="True"
+                  CanUserDeleteRows="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Colonne du Modele"  Binding="{Binding Name}"/>
+                <DataGridComboBoxColumn Header="Utilisation" SelectedItemBinding="{Binding Path=Usage}" ItemsSource="{Binding Source={x:Static local:Project.Active}, Path=DataModel.KnownUsages}" />
+                <DataGridComboBoxColumn Header="Colonne Source" ItemsSource="{Binding Source={x:Static local:Project.Active}, Path=DataModel.SourceColumns}" DisplayMemberPath="ColumnName" SelectedItemBinding="{Binding SourceColumn}"  />
+                <DataGridTextColumn  IsReadOnly="True" Binding="{Binding SourceColumn.DataType}" />
+                <DataGridComboBoxColumn Header="Type"  SelectedItemBinding="{Binding Type}" ItemsSource="{Binding Source={x:Static local:Project.Active}, Path=DataModel.KnownTypes}" />
+                <DataGridComboBoxColumn Header="Convertisseur" SelectedItemBinding="{Binding Path=ConverterType}" ItemsSource="{Binding Source={x:Static local:Project.Active}, Path=DataModel.KnownConverters}" />
+                <DataGridTextColumn Header="Formule"  Binding="{Binding Path=Formula, Mode=TwoWay}"/>
+                <DataGridTextColumn Header="Priorite"  Binding="{Binding Path=Priority, Mode=TwoWay}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!--<GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />-->
+        <!--<DataGrid AutoGenerateColumns="False" Grid.Row="2" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridComboBoxColumn Header="Colonne" />
+                <DataGridComboBoxColumn Header="Operateur" />
+                <DataGridTextColumn Header="Valeur" />
+            </DataGrid.Columns>
+        </DataGrid>-->
+    </Grid>
+</UserControl>
