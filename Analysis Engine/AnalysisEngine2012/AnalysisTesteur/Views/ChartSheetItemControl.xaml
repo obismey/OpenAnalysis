@@ -1,0 +1,32 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xml:lang="fr-FR"
+             xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="AnalysisTesteur.Views.ChartSheetItemControl" 
+    xmlns:converters="clr-namespace:AnalysisTesteur.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:DimensionItemListConverter x:Key="DimensionItemListConverter"/>
+    </UserControl.Resources>
+    <Grid>
+
+        <ig:XamDataChart x:Name="XamDataChart" DataContext="{Binding RowSet}" DataContextChanged="XamDataChart_DataContextChanged">
+            <ig:XamDataChart.Series>
+                <ig:ColumnSeries x:Name="ColumnSeries"  x:FieldModifier="public" XAxis="{Binding ElementName=CategoryXAxis}" YAxis="{Binding ElementName=NumericYAxis}"/>
+            </ig:XamDataChart.Series>
+            <ig:XamDataChart.Axes>
+                <ig:CategoryXAxis x:Name="CategoryXAxis" x:FieldModifier="public">
+                    <ig:CategoryXAxis.Label>
+                        <DataTemplate >
+                            <TextBlock Text="{Binding Path=Item.DimensionItems, Converter={StaticResource DimensionItemListConverter}, Mode=OneWay}" TextAlignment="Center" />
+                        </DataTemplate>
+                    </ig:CategoryXAxis.Label>
+                </ig:CategoryXAxis>
+                <ig:NumericYAxis x:Name="NumericYAxis" x:FieldModifier="public" />
+            </ig:XamDataChart.Axes>
+        </ig:XamDataChart>
+
+    </Grid>
+</UserControl>

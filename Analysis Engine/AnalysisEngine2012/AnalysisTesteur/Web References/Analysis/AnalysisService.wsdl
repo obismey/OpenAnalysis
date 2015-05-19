@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://obismey.org/analysis" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://obismey.org/analysis" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://obismey.org/analysis">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReloadData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReloadDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReloadDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetColumnList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetColumnListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetColumnListResult" type="tns:ArrayOfColumnData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfColumnData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ColumnData" nillable="true" type="tns:ColumnData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ColumnData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsIndexed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUnique" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNullable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTimeStamp" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:TypeCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TypeCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Empty" />
+          <s:enumeration value="Object" />
+          <s:enumeration value="DBNull" />
+          <s:enumeration value="Boolean" />
+          <s:enumeration value="Char" />
+          <s:enumeration value="SByte" />
+          <s:enumeration value="Byte" />
+          <s:enumeration value="Int16" />
+          <s:enumeration value="UInt16" />
+          <s:enumeration value="Int32" />
+          <s:enumeration value="UInt32" />
+          <s:enumeration value="Int64" />
+          <s:enumeration value="UInt64" />
+          <s:enumeration value="Single" />
+          <s:enumeration value="Double" />
+          <s:enumeration value="Decimal" />
+          <s:enumeration value="DateTime" />
+          <s:enumeration value="String" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateBookResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteBookResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="OpenBookResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseBook">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseBookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CloseBookResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBooksResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateSheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateSheetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSheetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSheetsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGlobalProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SheetName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PropertyPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGlobalPropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGlobalPropertyResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGlobalProperty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SheetName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PropertyPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetGlobalPropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetGlobalPropertyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSheetItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SheetName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UniqueID" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SheetItem">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ServiceObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ItemType" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateSheetItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSheetItemResult" type="tns:SheetItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSheetItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSheetItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteSheetItemResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheetItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BookName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SheetName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSheetItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SheetItem" nillable="true" type="tns:SheetItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSheetItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSheetItemsResult" type="tns:ArrayOfSheetItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStyleProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="paths" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStylePropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStylePropertiesResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheetItemType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheetItemTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSheetItemTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSheetItemType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSheetItemTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetSheetItemTypeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDimensionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="action" type="tns:UpdateAction" />
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="UpdateAction">
+        <s:restriction base="s:string">
+          <s:enumeration value="Insert" />
+          <s:enumeration value="Move" />
+          <s:enumeration value="Remove" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SheetItemDimension">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SheetItemPart">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Position" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Column" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:DimensionLocation" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSealed" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SheetItemPart">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ServiceObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SheetItem" type="tns:SheetItem" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="DimensionLocation">
+        <s:restriction base="s:string">
+          <s:enumeration value="Row" />
+          <s:enumeration value="Serie" />
+          <s:enumeration value="Column" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="UpdateDimensionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDimensionListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeasureList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+            <s:element minOccurs="1" maxOccurs="1" name="action" type="tns:UpdateAction" />
+            <s:element minOccurs="0" maxOccurs="1" name="measure" type="tns:SheetItemMeasure" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SheetItemMeasure">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SheetItemPart">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Position" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ValueColumn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ValueAggregate" type="tns:MeasureAggregate" />
+              <s:element minOccurs="0" maxOccurs="1" name="TargetColumn" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TargetAggregate" type="tns:MeasureAggregate" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSealed" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="MeasureAggregate">
+        <s:restriction base="s:string">
+          <s:enumeration value="Count" />
+          <s:enumeration value="CountRows" />
+          <s:enumeration value="CountNull" />
+          <s:enumeration value="Min" />
+          <s:enumeration value="Max" />
+          <s:enumeration value="Range" />
+          <s:enumeration value="First" />
+          <s:enumeration value="Last" />
+          <s:enumeration value="Avg" />
+          <s:enumeration value="Sum" />
+          <s:enumeration value="Std" />
+          <s:enumeration value="Var" />
+          <s:enumeration value="CV" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="UpdateMeasureListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMeasureListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDimension">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+            <s:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDimensionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDimensionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeasure">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="measure" type="tns:SheetItemMeasure" />
+            <s:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeasureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMeasureResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDimensionItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DimensionItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Position" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+          <s:element minOccurs="1" maxOccurs="1" name="Selected" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Selectable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDimensionItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DimensionItem" nillable="true" type="tns:DimensionItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDimensionItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDimensionItemsResult" type="tns:ArrayOfDimensionItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSheetItemRowSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="initem" type="tns:SheetItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SheetItemRowSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DimensionIdList" type="tns:ArrayOfGuid" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeasureIdList" type="tns:ArrayOfGuid" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowList" type="tns:ArrayOfSheetItemRow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGuid">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="guid" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSheetItemRow">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SheetItemRow" nillable="true" type="tns:SheetItemRow" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SheetItemRow">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Position" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DimensionItems" type="tns:ArrayOfDimensionItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeasureValues" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSheetItemRowSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSheetItemRowSetResult" type="tns:SheetItemRowSet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectedDimensionItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectedDimensionItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectedDimensionItemsResult" type="tns:ArrayOfDimensionItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleDimensionItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPossibleDimensionItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPossibleDimensionItemsResult" type="tns:ArrayOfDimensionItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExcludedDimensionItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExcludedDimensionItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExcludedDimensionItemsResult" type="tns:ArrayOfDimensionItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSelection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dimension" type="tns:SheetItemDimension" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemIdList" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateSelectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSelectionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetStyleProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:SheetItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="paths" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="values" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetStylePropertiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetStylePropertiesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReloadDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ReloadData" />
+  </wsdl:message>
+  <wsdl:message name="ReloadDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ReloadDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetColumnList" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetColumnListResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateBookSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateBook" />
+  </wsdl:message>
+  <wsdl:message name="CreateBookSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBookSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBook" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBookSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenBookSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenBook" />
+  </wsdl:message>
+  <wsdl:message name="OpenBookSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseBookSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseBook" />
+  </wsdl:message>
+  <wsdl:message name="CloseBookSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBooks" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSheet" />
+  </wsdl:message>
+  <wsdl:message name="CreateSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSheet" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSheets" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSheetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:GetGlobalProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetGlobalPropertySoapOut">
+    <wsdl:part name="parameters" element="tns:GetGlobalPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetGlobalPropertySoapIn">
+    <wsdl:part name="parameters" element="tns:SetGlobalProperty" />
+  </wsdl:message>
+  <wsdl:message name="SetGlobalPropertySoapOut">
+    <wsdl:part name="parameters" element="tns:SetGlobalPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSheetItemSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSheetItem" />
+  </wsdl:message>
+  <wsdl:message name="CreateSheetItemSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSheetItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSheetItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSheetItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSheetItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSheetItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSheetItems" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSheetItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStylePropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStyleProperties" />
+  </wsdl:message>
+  <wsdl:message name="GetStylePropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStylePropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSheetItemType" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSheetItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetSheetItemTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:SetSheetItemType" />
+  </wsdl:message>
+  <wsdl:message name="SetSheetItemTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:SetSheetItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDimensionListSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDimensionList" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDimensionListSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDimensionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeasureListSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMeasureList" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeasureListSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMeasureListResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDimensionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDimension" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDimensionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDimensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeasureSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMeasure" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeasureSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMeasureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDimensionItems" />
+  </wsdl:message>
+  <wsdl:message name="GetDimensionItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDimensionItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemRowSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSheetItemRowSet" />
+  </wsdl:message>
+  <wsdl:message name="GetSheetItemRowSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSheetItemRowSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectedDimensionItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectedDimensionItems" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectedDimensionItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectedDimensionItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleDimensionItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPossibleDimensionItems" />
+  </wsdl:message>
+  <wsdl:message name="GetPossibleDimensionItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPossibleDimensionItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExcludedDimensionItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExcludedDimensionItems" />
+  </wsdl:message>
+  <wsdl:message name="GetExcludedDimensionItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExcludedDimensionItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSelectionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSelection" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSelectionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSelectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetStylePropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetStyleProperties" />
+  </wsdl:message>
+  <wsdl:message name="SetStylePropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetStylePropertiesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AnalysisServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReloadData">
+      <wsdl:input message="tns:ReloadDataSoapIn" />
+      <wsdl:output message="tns:ReloadDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnList">
+      <wsdl:input message="tns:GetColumnListSoapIn" />
+      <wsdl:output message="tns:GetColumnListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <wsdl:input message="tns:CreateBookSoapIn" />
+      <wsdl:output message="tns:CreateBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <wsdl:input message="tns:DeleteBookSoapIn" />
+      <wsdl:output message="tns:DeleteBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenBook">
+      <wsdl:input message="tns:OpenBookSoapIn" />
+      <wsdl:output message="tns:OpenBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseBook">
+      <wsdl:input message="tns:CloseBookSoapIn" />
+      <wsdl:output message="tns:CloseBookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <wsdl:input message="tns:GetBooksSoapIn" />
+      <wsdl:output message="tns:GetBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheet">
+      <wsdl:input message="tns:CreateSheetSoapIn" />
+      <wsdl:output message="tns:CreateSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheet">
+      <wsdl:input message="tns:DeleteSheetSoapIn" />
+      <wsdl:output message="tns:DeleteSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSheets">
+      <wsdl:input message="tns:GetSheetsSoapIn" />
+      <wsdl:output message="tns:GetSheetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalProperty">
+      <wsdl:input message="tns:GetGlobalPropertySoapIn" />
+      <wsdl:output message="tns:GetGlobalPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGlobalProperty">
+      <wsdl:input message="tns:SetGlobalPropertySoapIn" />
+      <wsdl:output message="tns:SetGlobalPropertySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheetItem">
+      <wsdl:input message="tns:CreateSheetItemSoapIn" />
+      <wsdl:output message="tns:CreateSheetItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheetItem">
+      <wsdl:input message="tns:DeleteSheetItemSoapIn" />
+      <wsdl:output message="tns:DeleteSheetItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItems">
+      <wsdl:input message="tns:GetSheetItemsSoapIn" />
+      <wsdl:output message="tns:GetSheetItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStyleProperties">
+      <wsdl:input message="tns:GetStylePropertiesSoapIn" />
+      <wsdl:output message="tns:GetStylePropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemType">
+      <wsdl:input message="tns:GetSheetItemTypeSoapIn" />
+      <wsdl:output message="tns:GetSheetItemTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSheetItemType">
+      <wsdl:input message="tns:SetSheetItemTypeSoapIn" />
+      <wsdl:output message="tns:SetSheetItemTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimensionList">
+      <wsdl:input message="tns:UpdateDimensionListSoapIn" />
+      <wsdl:output message="tns:UpdateDimensionListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasureList">
+      <wsdl:input message="tns:UpdateMeasureListSoapIn" />
+      <wsdl:output message="tns:UpdateMeasureListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimension">
+      <wsdl:input message="tns:UpdateDimensionSoapIn" />
+      <wsdl:output message="tns:UpdateDimensionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasure">
+      <wsdl:input message="tns:UpdateMeasureSoapIn" />
+      <wsdl:output message="tns:UpdateMeasureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionItems">
+      <wsdl:input message="tns:GetDimensionItemsSoapIn" />
+      <wsdl:output message="tns:GetDimensionItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemRowSet">
+      <wsdl:input message="tns:GetSheetItemRowSetSoapIn" />
+      <wsdl:output message="tns:GetSheetItemRowSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedDimensionItems">
+      <wsdl:input message="tns:GetSelectedDimensionItemsSoapIn" />
+      <wsdl:output message="tns:GetSelectedDimensionItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleDimensionItems">
+      <wsdl:input message="tns:GetPossibleDimensionItemsSoapIn" />
+      <wsdl:output message="tns:GetPossibleDimensionItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExcludedDimensionItems">
+      <wsdl:input message="tns:GetExcludedDimensionItemsSoapIn" />
+      <wsdl:output message="tns:GetExcludedDimensionItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSelection">
+      <wsdl:input message="tns:UpdateSelectionSoapIn" />
+      <wsdl:output message="tns:UpdateSelectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStyleProperties">
+      <wsdl:input message="tns:SetStylePropertiesSoapIn" />
+      <wsdl:output message="tns:SetStylePropertiesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AnalysisServiceSoap" type="tns:AnalysisServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://obismey.org/analysis/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReloadData">
+      <soap:operation soapAction="http://obismey.org/analysis/ReloadData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnList">
+      <soap:operation soapAction="http://obismey.org/analysis/GetColumnList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <soap:operation soapAction="http://obismey.org/analysis/CreateBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <soap:operation soapAction="http://obismey.org/analysis/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenBook">
+      <soap:operation soapAction="http://obismey.org/analysis/OpenBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseBook">
+      <soap:operation soapAction="http://obismey.org/analysis/CloseBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <soap:operation soapAction="http://obismey.org/analysis/GetBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheet">
+      <soap:operation soapAction="http://obismey.org/analysis/CreateSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheet">
+      <soap:operation soapAction="http://obismey.org/analysis/DeleteSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheets">
+      <soap:operation soapAction="http://obismey.org/analysis/GetSheets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalProperty">
+      <soap:operation soapAction="http://obismey.org/analysis/GetGlobalProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGlobalProperty">
+      <soap:operation soapAction="http://obismey.org/analysis/SetGlobalProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheetItem">
+      <soap:operation soapAction="http://obismey.org/analysis/CreateSheetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheetItem">
+      <soap:operation soapAction="http://obismey.org/analysis/DeleteSheetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItems">
+      <soap:operation soapAction="http://obismey.org/analysis/GetSheetItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStyleProperties">
+      <soap:operation soapAction="http://obismey.org/analysis/GetStyleProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemType">
+      <soap:operation soapAction="http://obismey.org/analysis/GetSheetItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSheetItemType">
+      <soap:operation soapAction="http://obismey.org/analysis/SetSheetItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimensionList">
+      <soap:operation soapAction="http://obismey.org/analysis/UpdateDimensionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasureList">
+      <soap:operation soapAction="http://obismey.org/analysis/UpdateMeasureList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimension">
+      <soap:operation soapAction="http://obismey.org/analysis/UpdateDimension" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasure">
+      <soap:operation soapAction="http://obismey.org/analysis/UpdateMeasure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionItems">
+      <soap:operation soapAction="http://obismey.org/analysis/GetDimensionItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemRowSet">
+      <soap:operation soapAction="http://obismey.org/analysis/GetSheetItemRowSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedDimensionItems">
+      <soap:operation soapAction="http://obismey.org/analysis/GetSelectedDimensionItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleDimensionItems">
+      <soap:operation soapAction="http://obismey.org/analysis/GetPossibleDimensionItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExcludedDimensionItems">
+      <soap:operation soapAction="http://obismey.org/analysis/GetExcludedDimensionItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSelection">
+      <soap:operation soapAction="http://obismey.org/analysis/UpdateSelection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStyleProperties">
+      <soap:operation soapAction="http://obismey.org/analysis/SetStyleProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AnalysisServiceSoap12" type="tns:AnalysisServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://obismey.org/analysis/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReloadData">
+      <soap12:operation soapAction="http://obismey.org/analysis/ReloadData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumnList">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetColumnList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBook">
+      <soap12:operation soapAction="http://obismey.org/analysis/CreateBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBook">
+      <soap12:operation soapAction="http://obismey.org/analysis/DeleteBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenBook">
+      <soap12:operation soapAction="http://obismey.org/analysis/OpenBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseBook">
+      <soap12:operation soapAction="http://obismey.org/analysis/CloseBook" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheet">
+      <soap12:operation soapAction="http://obismey.org/analysis/CreateSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheet">
+      <soap12:operation soapAction="http://obismey.org/analysis/DeleteSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheets">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetSheets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalProperty">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetGlobalProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetGlobalProperty">
+      <soap12:operation soapAction="http://obismey.org/analysis/SetGlobalProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSheetItem">
+      <soap12:operation soapAction="http://obismey.org/analysis/CreateSheetItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSheetItem">
+      <soap12:operation soapAction="http://obismey.org/analysis/DeleteSheetItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItems">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetSheetItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStyleProperties">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetStyleProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemType">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetSheetItemType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSheetItemType">
+      <soap12:operation soapAction="http://obismey.org/analysis/SetSheetItemType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimensionList">
+      <soap12:operation soapAction="http://obismey.org/analysis/UpdateDimensionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasureList">
+      <soap12:operation soapAction="http://obismey.org/analysis/UpdateMeasureList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDimension">
+      <soap12:operation soapAction="http://obismey.org/analysis/UpdateDimension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeasure">
+      <soap12:operation soapAction="http://obismey.org/analysis/UpdateMeasure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDimensionItems">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetDimensionItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSheetItemRowSet">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetSheetItemRowSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedDimensionItems">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetSelectedDimensionItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPossibleDimensionItems">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetPossibleDimensionItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExcludedDimensionItems">
+      <soap12:operation soapAction="http://obismey.org/analysis/GetExcludedDimensionItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSelection">
+      <soap12:operation soapAction="http://obismey.org/analysis/UpdateSelection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStyleProperties">
+      <soap12:operation soapAction="http://obismey.org/analysis/SetStyleProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnalysisService">
+    <wsdl:port name="AnalysisServiceSoap" binding="tns:AnalysisServiceSoap">
+      <soap:address location="http://localhost:53938/AnalysisService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AnalysisServiceSoap12" binding="tns:AnalysisServiceSoap12">
+      <soap12:address location="http://localhost:53938/AnalysisService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,340 @@
+﻿<igRibbon:XamRibbonWindow xmlns:my="clr-namespace:Infragistics.Controls.Editors;assembly=InfragisticsWPF4.Controls.Editors.XamColorPicker.v11.2"  x:Class="AnalysisTesteur.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+		xmlns:viewModels="clr-namespace:AnalysisTesteur.ViewModels"
+        xmlns:views="clr-namespace:AnalysisTesteur.Views" xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:converters="clr-namespace:AnalysisTesteur.Converters"
+        Title="{Binding Path=Title}"
+        WindowStartupLocation="CenterScreen"
+        Height="400"
+        Width="800" Loaded="XamRibbonWindow_Loaded"
+        xmlns:igDock="http://infragistics.com/DockManager"                   
+        xmlns:igRibbon="http://infragistics.com/Ribbon">
+
+    <igRibbon:XamRibbonWindow.DataContext>
+        <viewModels:MainWindowViewModel />
+    </igRibbon:XamRibbonWindow.DataContext>
+
+    <igRibbon:RibbonWindowContentHost  >
+        <igRibbon:RibbonWindowContentHost.Ribbon>
+            <igRibbon:XamRibbon Name="Ribbon" Theme="Office2010Blue" IsMinimized="False" DataContext="{Binding}">
+                <igRibbon:XamRibbon.Resources>
+                    <Style TargetType="{x:Type igRibbon:ButtonTool}">
+                        <Setter Property="igRibbon:RibbonGroup.MaximumSize" Value="ImageAndTextLarge" />
+                    </Style>
+                </igRibbon:XamRibbon.Resources>
+                <igRibbon:XamRibbon.ContextualTabGroups>
+                    <igRibbon:ContextualTabGroup Caption="Tableau"/>
+                    <igRibbon:ContextualTabGroup Caption="Graphique">
+                        <igRibbon:RibbonTabItem Header="Données"/>
+                        <igRibbon:RibbonTabItem Header="Design">
+                            <igRibbon:RibbonGroup Caption="Type du graphique">
+                                <igRibbon:MenuTool ShouldDisplayGalleryPreview="True" MaxWidth="300">
+                                    <igRibbon:GalleryTool ItemBehavior="StateButton">
+                                        <igRibbon:GalleryTool.Items>
+                                            <igRibbon:GalleryItem Key="k1" Image="/AnalysisTesteur;component/Resources/Ribbon/Images/Bar_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k2" Image="/AnalysisTesteur;component/Resources/Ribbon/Images/StackedBar_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k3"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/FullStackedBar_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k4"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/Area_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k5"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/StackedArea_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k6"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/FullStackedArea_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k7"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/SplineArea_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k8"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/FullStackedSplineArea_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k9"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/StackedSplineArea_32x32.png" />
+                                            <igRibbon:GalleryItem  Key="k10" Image="/AnalysisTesteur;component/Resources/Ribbon/Images/StepArea_32x32.png" />
+                                            <igRibbon:GalleryItem  Key="k11" Image="/AnalysisTesteur;component/Resources/Ribbon/Images/Bubble_32x32.png" />
+                                            <igRibbon:GalleryItem  Key="k12" Image="/AnalysisTesteur;component/Resources/Ribbon/Images/RangeBar_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k13"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/RangeArea_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k14"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/PieStylePie_32x32.png" />
+                                            <igRibbon:GalleryItem Key="k15"  Image="/AnalysisTesteur;component/Resources/Ribbon/Images/PieStyleDonut_32x32.png" />
+
+                                        </igRibbon:GalleryTool.Items>
+                                        <igRibbon:GalleryTool.Groups>
+                                            <igRibbon:GalleryItemGroup Title="Colonne-Bar">
+                                                <igRibbon:GalleryItemGroup.ItemKeys>
+                                                    <s:String>k1</s:String>
+                                                    <s:String>k2</s:String>
+                                                    <s:String>k3</s:String>
+                                                </igRibbon:GalleryItemGroup.ItemKeys>
+
+                                            </igRibbon:GalleryItemGroup>
+                                            <igRibbon:GalleryItemGroup Title="Point-Ligne">
+
+
+                                            </igRibbon:GalleryItemGroup>
+                                            <igRibbon:GalleryItemGroup Title="Surface">
+                                                <s:String>k4</s:String>
+                                                <s:String>k5</s:String>
+                                                <s:String>k6</s:String>
+                                                <s:String>k7</s:String>
+                                                <s:String>k8</s:String>
+                                                <s:String>k9</s:String>
+                                                <s:String>k10</s:String>
+                                            </igRibbon:GalleryItemGroup>
+                                            <igRibbon:GalleryItemGroup Title="Autre">
+                                                <igRibbon:GalleryItemGroup.ItemKeys>
+                                                    <s:String>k11</s:String>
+                                                    <s:String>k12</s:String>
+                                                    <s:String>k13</s:String>
+                                                    <s:String>k14</s:String>
+                                                    <s:String>k15</s:String>
+                                                </igRibbon:GalleryItemGroup.ItemKeys>
+                                            </igRibbon:GalleryItemGroup>
+                                        </igRibbon:GalleryTool.Groups>
+
+
+
+                                    </igRibbon:GalleryTool>
+                                </igRibbon:MenuTool>
+                            </igRibbon:RibbonGroup>
+                        </igRibbon:RibbonTabItem>
+                    </igRibbon:ContextualTabGroup>
+                    <igRibbon:ContextualTabGroup Caption="Liste de Choix"/>
+                </igRibbon:XamRibbon.ContextualTabGroups>
+                <igRibbon:XamRibbon.ApplicationMenu>
+                    <igRibbon:ApplicationMenu Caption="Acceuil" x:Name="ApplicationMenu" >
+                        <igRibbon:ButtonTool Caption="Se Connecter" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/login.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/login.png" Command="{Binding Path=UpdateDashboardBookList}" />
+                        <igRibbon:ButtonTool Caption="Se Deconnecter" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/logout.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/logout.png" />
+                        <igRibbon:SeparatorTool />
+                        <igRibbon:ButtonTool Caption="Nouveau projet" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/folder-open-add.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/folder-open-add.png" Command="{Binding Path=CreateDashboardBook}" />
+                        <igRibbon:MenuTool Caption="Ouvrir un projet" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/folderopen1.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/folderopen1.png" Command="{Binding Path=OpenDashboardBook}" ItemsSource="{Binding Path=DashboardBookList}" />
+                        <igRibbon:ButtonTool Caption="Fermer le projet" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Close%20folder.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Close%20folder.png" Command="{Binding Path=CloseDashboardBook}" />
+                        <igRibbon:SeparatorTool />
+                        <igRibbon:ButtonTool Caption="Options" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                    </igRibbon:ApplicationMenu>
+                </igRibbon:XamRibbon.ApplicationMenu>
+                <igRibbon:XamRibbon.QuickAccessToolbar>
+                    <igRibbon:QuickAccessToolbar IsOverflowOpen="True" />
+                </igRibbon:XamRibbon.QuickAccessToolbar>
+                <igRibbon:RibbonTabItem Header="Projet">
+                    <igRibbon:RibbonGroup Caption="Données">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Configurer" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" IsQatCommonTool="False" />
+                        <igRibbon:ButtonTool Caption="Uploader une table" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/upload.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/upload.png" />
+                        <igRibbon:ButtonTool Caption="Recharger les données" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Refresh.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Refresh.png" Command="{Binding Path=ReloadData}" />
+                        <igRibbon:MenuTool Caption="Changer de table" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Paramètres" >
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Configurer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                        <igRibbon:ButtonTool Caption="Nouveau Parametre">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/new-icon_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                        <igRibbon:MenuTool Caption="Editer Parametre" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Champs" >
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Configurer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                        <igRibbon:ButtonTool Caption="Nouveau Champ">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/new-icon_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Aggrégats" >
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Configurer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                        <igRibbon:ButtonTool Caption="Nouvel Aggrégat">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/new-icon_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Feuilles">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Nouvelle Feuille">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/new-icon_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                        <igRibbon:ButtonTool Caption="Supprimer la Feuille">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/remove_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Propriétés">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Options" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                        <igRibbon:TextEditorTool Caption="Nom" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/pencil.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/pencil.png" />
+                    </igRibbon:RibbonGroup>
+                </igRibbon:RibbonTabItem>
+                <igRibbon:RibbonTabItem Header="Feuille">
+                    <igRibbon:RibbonGroup Caption="RibbonGroup" Visibility="Collapsed">
+                        <igRibbon:ButtonTool Caption="Btn test" Click="ButtonTool_Click"  />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Feuilles">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Nouvelle Feuille">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/new-icon_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                        <igRibbon:ButtonTool Caption="Supprimer la Feuille">
+                            <igRibbon:ButtonTool.LargeImage>
+                                <BitmapImage UriSource="/AnalysisTesteur;component/Resources/Ribbon/Images/remove_32.png" />
+                            </igRibbon:ButtonTool.LargeImage>
+                        </igRibbon:ButtonTool>
+                        <igRibbon:ButtonTool Caption="Options" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Historique">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Undo" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Undo_32x32.png" Command="{Binding Path=UndoRedoCommand}" CommandParameter="Undo" />
+                        <igRibbon:ButtonTool Caption="Redo" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Redo_32x32.png" Command="{Binding Path=UndoRedoCommand}" CommandParameter="Redo" />
+                        <igRibbon:ButtonTool Caption="Effacer la selection" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/clear_32.png" />
+                        <igRibbon:ButtonTool Caption="Selection précédente" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/previous_32.png" />
+                        <igRibbon:ButtonTool Caption="Selection suivante" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/next_32.png" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Insérer">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="TCD" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertPivot_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="PivotSheetItem" />
+                        <igRibbon:ButtonTool Caption="Tableau" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertGrid_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="GridSheetItem" />
+                        <igRibbon:ButtonTool Caption="Table" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertListBox_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="TableSheetItem" />
+                        <igRibbon:ButtonTool Caption="Graphique" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertChart_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="ChartSheetItem" />
+                        <igRibbon:ButtonTool Caption="Carte" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ShapeLabels_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="MapSheetItem" />
+                        <igRibbon:ButtonTool Caption="Jauge" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertGauges_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="GaugeSheetItem" />
+                        <igRibbon:ButtonTool Caption="Custom" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertCards_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="CustomSheetItem" />
+                        <igRibbon:ButtonTool Caption="Image" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertImage_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="PictureSheetItem" />
+                        <igRibbon:ButtonTool Caption="Liste de Choix" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertFilterElement_32x32.png" Command="{Binding Path=InsertSheetItem}" CommandParameter="ListBoxSheetItem" />
+                    </igRibbon:RibbonGroup>
+                </igRibbon:RibbonTabItem>
+                <igRibbon:RibbonTabItem Header="Element">
+                    <igRibbon:RibbonGroup Caption="Element">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Dupliquer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/DuplicateItem_32x32.png" />
+                        <igRibbon:ButtonTool Caption="Supprimer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/remove_32.png" />
+                        <igRibbon:ButtonTool Caption="Effacer Données" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/RemoveDataItems_32x32.png" />
+                        <igRibbon:MenuTool Caption="Convertir" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ConvertDashboardItemType_32x32.png">
+                            <igRibbon:ButtonTool LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertListBox_32x32.png" />
+                            <igRibbon:ButtonTool LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertFilterElement_32x32.png" />
+                        </igRibbon:MenuTool>
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Style En-tete">
+                        <igRibbon:ButtonTool Caption="Titre" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/DashboardTitle_32x32.png" />
+                        <igRibbon:MenuTool Caption="Couleur Arriere" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ColorScheme_32x32.png">
+                            <my:XamColorPicker />
+                        </igRibbon:MenuTool>
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Style Corps">
+                        <igRibbon:MenuTool Caption="Couleur Arriere" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ColorScheme_32x32.png">
+                            <my:XamColorPicker />
+                        </igRibbon:MenuTool>
+                        <igRibbon:MenuTool Caption="Couleur Bordure" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ColorScheme_32x32.png">
+                            <my:XamColorPicker />
+                        </igRibbon:MenuTool>
+                    </igRibbon:RibbonGroup>
+                </igRibbon:RibbonTabItem>
+                <igRibbon:RibbonTabItem Header="Profil">
+                    <igRibbon:RibbonGroup Caption="Utilisateur">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Configurer" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Settings.png" />
+                        <igRibbon:ButtonTool Caption="Sécurité" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/lock.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/lock.png" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Theme">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool Caption="Styles" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/style.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/style.png" />
+                        <igRibbon:ButtonTool Caption="Couleurs" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ColorScheme_32x32.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/ColorScheme_32x32.png" />
+                        <igRibbon:ButtonTool Caption="Images" LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertImage_32x32.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/InsertImage_32x32.png" />
+                    </igRibbon:RibbonGroup>
+                    <igRibbon:RibbonGroup Caption="Aide">
+                        <igRibbon:RibbonGroup.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <igRibbon:ToolHorizontalWrapPanel />
+                            </ItemsPanelTemplate>
+                        </igRibbon:RibbonGroup.ItemsPanel>
+                        <igRibbon:ButtonTool  LargeImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Help.png" SmallImage="/AnalysisTesteur;component/Resources/Ribbon/Images/Help.png" />
+                    </igRibbon:RibbonGroup>
+                </igRibbon:RibbonTabItem>
+            </igRibbon:XamRibbon>
+        </igRibbon:RibbonWindowContentHost.Ribbon>
+        <igRibbon:RibbonWindowContentHost.StatusBar>
+            <StatusBar Margin="2">
+                <TextBlock Text="Online ..." />
+            </StatusBar>
+        </igRibbon:RibbonWindowContentHost.StatusBar>
+        <Grid>
+            <igDock:XamDockManager Theme="Office2010Blue">
+                <igDock:XamDockManager.Panes>
+                    <igDock:SplitPane SplitterOrientation="Horizontal" igDock:XamDockManager.InitialLocation="DockedLeft">
+                        <igDock:TabGroupPane>
+                            <igDock:ContentPane Header="Colonnes" CloseButtonVisibility="Collapsed" AllowInDocumentHost="False" >
+                                <views:ColumnListControl DataContext="{Binding Path=ActiveDashboardBook.ColumnList}" />
+                            </igDock:ContentPane>
+                            <igDock:ContentPane Header="Test Pane" />
+                        </igDock:TabGroupPane>
+                    </igDock:SplitPane>
+                    <igDock:SplitPane SplitterOrientation="Horizontal" igDock:XamDockManager.InitialLocation="DockedRight">
+                        <igDock:TabGroupPane>
+                            <igDock:ContentPane Header="Propiétés" CloseButtonVisibility="Collapsed" AllowInDocumentHost="False">
+                                <views:ItemDataConfigControl DataContext="{Binding Path=ActiveDashboardBook.ActiveDashboardSheet.ActiveDashboardItem}" />
+                            </igDock:ContentPane>
+                            <igDock:ContentPane Header="Test Pane" />
+                        </igDock:TabGroupPane>
+                    </igDock:SplitPane>
+                </igDock:XamDockManager.Panes>
+                <igDock:DocumentContentHost x:Name="DashboardSheetDocumentContentHost" >
+                    <igDock:SplitPane x:Name="DashboardSheetSplitPane">
+                        <igDock:TabGroupPane x:Name="DashboardSheetTabGroupPane" >
+
+                        </igDock:TabGroupPane>
+                    </igDock:SplitPane>
+                </igDock:DocumentContentHost>
+            </igDock:XamDockManager>
+        </Grid>
+
+    </igRibbon:RibbonWindowContentHost>
+
+</igRibbon:XamRibbonWindow >
